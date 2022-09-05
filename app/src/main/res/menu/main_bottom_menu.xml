@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:title="Home"
+        android:enabled="true"
+        android:id="@+id/menu_home"
+        android:icon="@drawable/ic_baseline_search_24" />
+    <item
+        android:title="Search"
+        android:enabled="true"
+        android:id="@+id/menu_search"
+        android:icon="@drawable/ic_baseline_search_24" />
+    <item
+        android:title="Alarm"
+        android:enabled="true"
+        android:id="@+id/menu_alarm"
+        android:icon="@drawable/ic_baseline_search_24" />
+    <item
+        android:title="MyPage"
+        android:enabled="true"
+        android:id="@+id/menu_my_page"
+        android:icon="@drawable/ic_baseline_search_24" />
+</menu>
