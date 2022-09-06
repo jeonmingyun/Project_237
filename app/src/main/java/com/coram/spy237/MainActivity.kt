@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.coram.spy237.databinding.ActivityMainBinding
+import com.coram.spy237.ui.alarm.AlarmFragment
 import com.coram.spy237.ui.search.SearchFragment
 import com.coram.spy237.util.Utils
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -25,12 +26,11 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction().add(R.id.mainFrame, SearchFragment()).commit()
 
         binding.mainBottomMenu.setOnItemSelectedListener {
-            Utils.onLog("dddddddddddd")
             replaceFragment(
                 when (it.itemId) {
                     R.id.menu_home -> SearchFragment()
                     R.id.menu_search -> SearchFragment()
-                    R.id.menu_alarm -> SearchFragment()
+                    R.id.menu_alarm -> AlarmFragment()
                     R.id.menu_my_page -> SearchFragment()
                     else -> SearchFragment()
                 }

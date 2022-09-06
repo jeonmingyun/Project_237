@@ -6,23 +6,14 @@
     android:layout_height="70dp">
 
     <TextView
-        android:id="@+id/dateType"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="오전" />
-
-    <TextView
         android:id="@+id/prayTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/dateType"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="8:00" />
+        tools:text="오전 8:00" />
 
     <TextView
         android:id="@+id/prayContent"

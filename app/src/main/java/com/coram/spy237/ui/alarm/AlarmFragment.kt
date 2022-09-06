@@ -6,6 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.coram.spy237.databinding.FragmentAlarmBinding
+import com.coram.spy237.model.AlarmModel
+import com.coram.spy237.model.SearchModel
+import com.coram.spy237.ui.search.SearchAdapter
+import java.util.ArrayList
 
 class AlarmFragment : Fragment() {
     // view binding
@@ -25,6 +29,7 @@ class AlarmFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setMissionBarEnergy(40)
+        initAlarmRecycler(AlarmModel.getTestList())
     }
 
     override fun onDestroyView() {
@@ -35,5 +40,10 @@ class AlarmFragment : Fragment() {
 
     private fun setMissionBarEnergy(percent: Int) {
         binding.progressBar.progress = percent
+    }
+
+    private fun initAlarmRecycler(itemList: ArrayList<AlarmModel>) {
+        val adapter = AlarmAdapter(requireContext(), itemList, 1)
+        binding.prayRecycler.adapter = adapter
     }
 }
