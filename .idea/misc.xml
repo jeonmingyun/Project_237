@@ -3,8 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/layout-v29/fragment_alarm_add.xml" value="0.2712765957446808" />
         <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/layout/activity_main.xml" value="0.2692502532928065" />
         <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/layout/fragment_alarm.xml" value="0.2712765957446808" />
+        <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/layout/fragment_alarm_add.xml" value="0.33" />
+        <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/layout/fragment_blank.xml" value="0.5536458333333333" />
         <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/layout/fragment_search.xml" value="0.2692502532928065" />
         <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/layout/item_country_search_list.xml" value="0.2692502532928065" />
         <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/layout/item_pray_list_default.xml" value="0.5536458333333333" />

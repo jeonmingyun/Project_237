@@ -7,11 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.coram.spy237.databinding.FragmentAlarmBinding
 import com.coram.spy237.model.AlarmModel
-import com.coram.spy237.model.SearchModel
-import com.coram.spy237.ui.search.SearchAdapter
-import java.util.ArrayList
+import java.util.*
 
-class AlarmFragment : Fragment() {
+class AlarmFragment : Fragment(), View.OnClickListener{
     // view binding
     private var mBinding: FragmentAlarmBinding? = null
     private val binding get() = mBinding!!
@@ -30,12 +28,20 @@ class AlarmFragment : Fragment() {
 
         setMissionBarEnergy(40)
         initAlarmRecycler(AlarmModel.getTestList())
+
+        binding.prayAddBtn.setOnClickListener(this)
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         // view binding
         mBinding = null
+    }
+
+    override fun onClick(view: View?) {
+        if(view == binding.prayAddBtn) {
+
+        }
     }
 
     private fun setMissionBarEnergy(percent: Int) {
