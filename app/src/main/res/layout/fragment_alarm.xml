@@ -9,7 +9,7 @@
 
     <TextView
         android:id="@+id/missionLabel"
-        android:layout_width="52dp"
+        android:layout_width="55dp"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Daily mission"
@@ -28,11 +28,14 @@
         app:layout_constraintStart_toEndOf="@id/missionLabel"
         app:layout_constraintTop_toTopOf="@id/missionLabel" />
 
-    <View
-        android:id="@+id/weekCalender"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/weekCalendar"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:background="#efefef"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/padding_calendar_header_item_15"
+        android:paddingEnd="@dimen/padding_calendar_header_item_15"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintTop_toBottomOf="@id/missionLabel" />
 
     <View
@@ -40,7 +43,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/divider_default"
         android:background="@color/divider_gray_light"
-        app:layout_constraintTop_toBottomOf="@id/weekCalender" />
+        app:layout_constraintTop_toBottomOf="@id/weekCalendar" />
 
     <TextView
         android:id="@+id/textView"

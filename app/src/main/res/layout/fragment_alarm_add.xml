@@ -27,6 +27,12 @@
             android:selectionDividerHeight="0dp"
             android:timePickerMode="spinner" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:text=":"
+            android:textColor="@color/black"
+            android:layout_height="wrap_content"/>
+
         <NumberPicker
             android:id="@+id/minPicker"
             android:layout_width="wrap_content"

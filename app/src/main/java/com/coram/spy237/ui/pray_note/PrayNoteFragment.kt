@@ -1,18 +1,15 @@
-package com.coram.spy237.ui.my_page
+package com.coram.spy237.ui.pray_note
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.coram.spy237.R
-import com.coram.spy237.databinding.FragmentAlarmBinding
-import com.coram.spy237.databinding.FragmentMyPageBinding
-import com.coram.spy237.databinding.FragmentSearchBinding
+import androidx.fragment.app.Fragment
+import com.coram.spy237.databinding.FragmentPrayNoteBinding
 
-class MyPageFragment : Fragment() {
+class PrayNoteFragment : Fragment() {
     // view binding
-    private var mBinding: FragmentMyPageBinding? = null
+    private var mBinding: FragmentPrayNoteBinding? = null
     private val binding get() = mBinding!!
 
     override fun onCreateView(
@@ -20,7 +17,7 @@ class MyPageFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // view binding
-        mBinding = FragmentMyPageBinding.inflate(layoutInflater)
+        mBinding = FragmentPrayNoteBinding.inflate(layoutInflater)
         return binding.root
     }
 

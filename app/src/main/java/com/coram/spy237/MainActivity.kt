@@ -1,15 +1,13 @@
 package com.coram.spy237
 
 import android.os.Bundle
-import android.view.MenuItem
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.coram.spy237.databinding.ActivityMainBinding
 import com.coram.spy237.ui.alarm.AlarmFragment
+import com.coram.spy237.ui.country_info.CountryInfoFragment
+import com.coram.spy237.ui.pray_note.PrayNoteFragment
 import com.coram.spy237.ui.search.SearchFragment
-import com.coram.spy237.util.Utils
-import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
     // view binding
@@ -23,16 +21,17 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-        supportFragmentManager.beginTransaction().add(R.id.mainFrame, SearchFragment()).commit()
+        supportFragmentManager.beginTransaction().add(R.id.mainFrame, CountryInfoFragment()).commit()
 
         binding.mainBottomMenu.setOnItemSelectedListener {
             replaceFragment(
                 when (it.itemId) {
-                    R.id.menu_home -> SearchFragment()
+                    R.id.menu_home -> CountryInfoFragment()
                     R.id.menu_search -> SearchFragment()
                     R.id.menu_alarm -> AlarmFragment()
-                    R.id.menu_my_page -> SearchFragment()
-                    else -> SearchFragment()
+                    R.id.menu_pray_note -> PrayNoteFragment()
+//                    R.id.menu_my_page -> MyPageFragment()
+                    else -> CountryInfoFragment()
                 }
             )
             true
@@ -46,6 +45,17 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun replaceFragment(fragment: Fragment) {
-        supportFragmentManager.beginTransaction().replace(R.id.mainFrame, fragment).commit()
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.mainFrame, fragment)
+            .commit()
+    }
+
+    fun replaceFragmentWithBackPress(fragment: Fragment) {
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.mainFrame, fragment)
+            .addToBackStack(null)
+            .commit()
     }
 }

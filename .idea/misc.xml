@@ -5,13 +5,19 @@
       <map>
         <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/layout-v29/fragment_alarm_add.xml" value="0.2712765957446808" />
         <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/layout/activity_main.xml" value="0.2692502532928065" />
+        <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/layout/calendar_header_item.xml" value="0.5536458333333333" />
         <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/layout/fragment_alarm.xml" value="0.2712765957446808" />
-        <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/layout/fragment_alarm_add.xml" value="0.33" />
+        <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/layout/fragment_alarm_add.xml" value="0.75" />
         <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/layout/fragment_blank.xml" value="0.5536458333333333" />
+        <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/layout/fragment_country_info.xml" value="0.33125" />
+        <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/layout/fragment_my_page.xml" value="0.33125" />
+        <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/layout/fragment_pray_note.xml" value="0.33125" />
         <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/layout/fragment_search.xml" value="0.2692502532928065" />
+        <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/layout/item_calendar_list.xml" value="0.33125" />
         <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/layout/item_country_search_list.xml" value="0.2692502532928065" />
         <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/layout/item_pray_list_default.xml" value="0.5536458333333333" />
         <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/layout/item_pray_list_selected.xml" value="0.46733668341708545" />
+        <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/menu/main_bottom_menu.xml" value="0.33125" />
         <entry key="..\:/jmg_project/android_workspace/Spy237/app/src/main/res/drawable/check_box_circle.xml" value="0.5697916666666667" />
         <entry key="..\:/jmg_project/android_workspace/Spy237/app/src/main/res/drawable/progress_bar_line.xml" value="0.5697916666666667" />
         <entry key="..\:/jmg_project/android_workspace/Spy237/app/src/main/res/layout/activity_main.xml" value="0.2866847826086957" />

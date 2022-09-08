@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.CheckBox
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.coram.spy237.MainActivity
 import com.coram.spy237.R
 import com.coram.spy237.model.AlarmModel
 import com.coram.spy237.util.Utils
@@ -70,6 +71,12 @@ class AlarmAdapter(
             prayTime.text = item.time
             prayContent.text = item.content
             itemView.setOnClickListener(this)
+
+            itemView.setOnLongClickListener {
+                (context as MainActivity).replaceFragmentWithBackPress(AlarmAddFragment.newInstance(AlarmAddFragment.BUNDLE_VAL_FLAG_EDIT))
+
+                true
+            }
         }
 
         override fun onClick(v: View?) {

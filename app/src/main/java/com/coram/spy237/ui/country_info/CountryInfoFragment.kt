@@ -1,4 +1,4 @@
-package com.coram.spy237.ui.my_page
+package com.coram.spy237.ui.country_info
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,12 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import com.coram.spy237.R
 import com.coram.spy237.databinding.FragmentAlarmBinding
+import com.coram.spy237.databinding.FragmentCountryInfoBinding
 import com.coram.spy237.databinding.FragmentMyPageBinding
 import com.coram.spy237.databinding.FragmentSearchBinding
 
-class MyPageFragment : Fragment() {
+class CountryInfoFragment : Fragment() {
     // view binding
-    private var mBinding: FragmentMyPageBinding? = null
+    private var mBinding: FragmentCountryInfoBinding? = null
     private val binding get() = mBinding!!
 
     override fun onCreateView(
@@ -20,7 +21,7 @@ class MyPageFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // view binding
-        mBinding = FragmentMyPageBinding.inflate(layoutInflater)
+        mBinding = FragmentCountryInfoBinding.inflate(layoutInflater)
         return binding.root
     }
 

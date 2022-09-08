@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import com.coram.spy237.databinding.FragmentAlarmAddBinding
 import com.coram.spy237.util.Utils
@@ -62,7 +63,7 @@ class AlarmAddFragment : Fragment(), View.OnClickListener {
     override fun onClick(view: View?) {
         when (view) {
             binding.cancelBtn -> {
-                Utils.onToast(context, "취소")
+                requireActivity().supportFragmentManager.popBackStack()
             }
             binding.deleteBtn -> {
                 Utils.onToast(context, "삭제")
@@ -78,21 +79,32 @@ class AlarmAddFragment : Fragment(), View.OnClickListener {
 
     private fun setAmPmPicker() {
         val values = arrayOf("오전", "오후")
+        binding.amPmPicker.minValue = 0
+        binding.amPmPicker.maxValue = values.size -1
         binding.amPmPicker.displayedValues = values
-        binding.amPmPicker.wrapSelectorWheel = true
         binding.amPmPicker.setOnValueChangedListener { picker, oldVal, newVal ->
             Utils.onLog("$picker / $oldVal / $newVal")
         }
     }
 
     private fun setHourPicker() {
+        val values: Array<String> = Array(12){
+                i -> if(i<10) "0$i" else i.toString()
+        }
+
         binding.hourPicker.minValue = 0
-        binding.hourPicker.maxValue = 11
+        binding.hourPicker.maxValue = values.size -1
+        binding.hourPicker.displayedValues = values
     }
 
     private fun setMinPicker() {
+        val values: Array<String> = Array(60){
+                i -> if(i<10) "0$i" else i.toString()
+        }
+
         binding.minPicker.minValue = 0
-        binding.minPicker.maxValue = 59
+        binding.minPicker.maxValue = values.size -1
+        binding.minPicker.displayedValues = values
     }
 
     private fun setBundleData() {
