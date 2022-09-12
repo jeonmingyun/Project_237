@@ -4,4 +4,7 @@
     <dimen name="divider_default">1dp</dimen>
     <dimen name="padding_calendar_header_item_15">15dp</dimen>
     <dimen name="padding_calendar_header_item_20">20dp</dimen>
+    <dimen name="toolbarTitle">20sp</dimen>
+    <dimen name="pagingIndicatorSize">5dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
 </resources>

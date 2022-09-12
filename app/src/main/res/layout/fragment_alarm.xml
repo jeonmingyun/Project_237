@@ -4,13 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/margin_activity_default"
+    android:background="@color/white"
     tools:context=".ui.alarm.AlarmFragment">
 
     <TextView
         android:id="@+id/missionLabel"
         android:layout_width="55dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_activity_default"
+        android:layout_marginTop="@dimen/margin_activity_default"
         android:gravity="center"
         android:text="Daily mission"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,6 +24,7 @@
         android:layout_width="0dp"
         android:layout_height="16dp"
         android:layout_marginStart="7dp"
+        android:layout_marginEnd="@dimen/margin_activity_default"
         android:progressDrawable="@drawable/progress_bar_line"
         app:layout_constraintBottom_toBottomOf="@id/missionLabel"
         app:layout_constraintEnd_toEndOf="parent"
@@ -49,6 +52,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_activity_default"
         android:text="정시기도"
         app:layout_constraintBottom_toBottomOf="@id/prayAddBtn"
         app:layout_constraintStart_toStartOf="parent"
@@ -59,6 +63,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:layout_marginEnd="@dimen/margin_activity_default"
         android:layout_marginBottom="10dp"
         android:background="@android:color/transparent"
         android:src="@drawable/ic_baseline_add_24"
@@ -70,5 +75,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintTop_toBottomOf="@id/prayAddBtn" />
+        app:layout_constraintTop_toBottomOf="@id/prayAddBtn"
+        tools:listitem="@layout/item_pray_list_default"
+        tools:itemCount="3"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

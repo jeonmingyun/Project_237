@@ -86,7 +86,7 @@ class AlarmAdapter(
         }
     }
 
-    inner class SelectedViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class SelectedViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
         private var item: AlarmModel? = null
         private val prayHeaderTime: TextView = itemView.findViewById(R.id.prayHeaderTime)
         private val prayHeaderContent: TextView = itemView.findViewById(R.id.prayHeaderContent)
@@ -99,6 +99,18 @@ class AlarmAdapter(
             prayHeaderTime.text = item.time
             prayHeaderContent.text = item.headerContent
             prayContent.text = item.content
+
+            itemView.setOnLongClickListener {
+                (context as MainActivity).replaceFragmentWithBackPress(AlarmAddFragment.newInstance(AlarmAddFragment.BUNDLE_VAL_FLAG_EDIT))
+
+                true
+            }
+        }
+
+        override fun onClick(v: View?) {
+            if(v == this.itemView) {
+                setSelectedPosition(adapterPosition)
+            }
         }
     }
 }

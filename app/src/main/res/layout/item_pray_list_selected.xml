@@ -3,12 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="?android:attr/selectableItemBackground">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/prayHeader"
         android:layout_width="match_parent"
         android:layout_height="30dp"
+        android:layout_marginStart="@dimen/margin_activity_default"
+        android:layout_marginTop="@dimen/margin_activity_default"
+        android:layout_marginEnd="@dimen/margin_activity_default"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
@@ -35,6 +39,8 @@
         android:id="@+id/prayHeaderContent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_activity_default"
+        android:layout_marginEnd="@dimen/margin_activity_default"
         android:ellipsize="end"
         android:maxLines="1"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,6 +51,8 @@
         android:id="@+id/prayContent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_activity_default"
+        android:layout_marginEnd="@dimen/margin_activity_default"
         app:layout_constraintTop_toBottomOf="@id/prayHeaderContent"
         tools:text="블라 블라 블라 블라 블라 블라 블라 블라 블라 블라 블라 블라 블라 블라 블라 블라 블라 블라 블라 블라 블라 블라 블라 블라 블라 블라 블라 블라 블라 블라 " />
 

@@ -1,10 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white">
 
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="pray note"/>
+        android:layout_height="?android:attr/actionBarSize"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/toolbarTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:paddingStart="@dimen/margin_activity_default"
+            android:text="기도수첩"
+            android:textSize="@dimen/toolbarTitle"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageButton
+            android:id="@+id/toolbarMenuBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:paddingEnd="@dimen/margin_activity_default"
+            android:src="@drawable/ic_baseline_menu_24"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="#efefef"
+            app:layout_constraintBottom_toTopOf="@id/pagingBtnContainer"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/pagingBtnContainer"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="30dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/btn_prev_arrow"
+                app:layout_constraintEnd_toStartOf="@id/pagingIndicator1" />
+
+            <View
+                android:id="@+id/pagingIndicator1"
+                android:layout_width="@dimen/pagingIndicatorSize"
+                android:layout_height="@dimen/pagingIndicatorSize"
+                android:layout_marginEnd="7dp"
+                android:background="@color/app_yellow"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/pagingIndicator2"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/pagingIndicator2"
+                android:layout_width="@dimen/pagingIndicatorSize"
+                android:layout_height="@dimen/pagingIndicatorSize"
+                android:background="@color/app_yellow"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/pagingIndicator3"
+                android:layout_width="@dimen/pagingIndicatorSize"
+                android:layout_height="@dimen/pagingIndicatorSize"
+                android:layout_marginStart="7dp"
+                android:background="@color/app_yellow"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/pagingIndicator2"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="30dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/btn_next_arrow"
+                app:layout_constraintStart_toEndOf="@id/pagingIndicator3" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
