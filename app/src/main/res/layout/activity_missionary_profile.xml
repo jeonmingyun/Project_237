@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:paddingStart="@dimen/margin_activity_default"
+            android:src="@drawable/btn_prev_arrow"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:innerRadius="0dp"
+        android:shape="ring"
+        app:cardCornerRadius="100dp"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintWidth_percent="0.33">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/pray_fram2" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15sp"
+        android:text="김동길"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/cardView"
+        app:layout_constraintStart_toStartOf="@+id/cardView"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+    <ImageView
+        android:id="@+id/location_icon"
+        android:layout_width="15dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="3dp"
+        android:src="@drawable/location_icon"
+        app:layout_constraintBottom_toBottomOf="@id/location"
+        app:layout_constraintEnd_toStartOf="@id/location"
+        app:layout_constraintStart_toStartOf="@id/name"
+        app:layout_constraintTop_toTopOf="@id/location" />
+
+
+    <TextView
+        android:id="@+id/location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="아프리카 | 케냐"
+        app:layout_constraintEnd_toEndOf="@+id/name"
+        app:layout_constraintStart_toEndOf="@+id/location_icon"
+        app:layout_constraintTop_toBottomOf="@+id/name" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/familyRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal"
+
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintTop_toBottomOf="@id/location" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/profileContainer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/moreBtn"
+        app:layout_constraintEnd_toEndOf="@+id/moreBtn"
+        app:layout_constraintStart_toStartOf="@+id/moreBtn"
+        app:layout_constraintTop_toBottomOf="@id/familyRecycler">
+
+        <ImageView
+            android:id="@+id/profile1Icon"
+            android:layout_width="15dp"
+            android:layout_height="0dp"
+            android:src="@drawable/icon_profile_1"
+            app:layout_constraintBottom_toBottomOf="@id/profile1Text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/profile1Text" />
+
+        <TextView
+            android:id="@+id/profile1Text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="케냐 키팅겔라 미션교화"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/profile1Icon"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/profile2Icon"
+            android:layout_width="15dp"
+            android:layout_height="0dp"
+            android:src="@drawable/icon_profile_2"
+            app:layout_constraintBottom_toBottomOf="@id/profile2Text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/profile2Text" />
+
+        <TextView
+            android:id="@+id/profile2Text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="7dp"
+            android:text="1994/10/01 선교지 파송"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/profile1Icon"
+            app:layout_constraintTop_toBottomOf="@id/profile1Text" />
+
+        <ImageView
+            android:id="@+id/profile3Icon"
+            android:layout_width="15dp"
+            android:layout_height="0dp"
+            android:src="@drawable/icon_profile_3"
+            app:layout_constraintBottom_toBottomOf="@id/profile3Text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/profile3Text" />
+
+        <TextView
+            android:id="@+id/profile3Text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="7dp"
+            android:text="1998/07/28 본부 파송"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/profile1Icon"
+            app:layout_constraintTop_toBottomOf="@id/profile2Text" />
+
+        <ImageView
+            android:id="@+id/profile4Icon"
+            android:layout_width="15dp"
+            android:layout_height="0dp"
+            android:src="@drawable/icon_profile_4"
+            app:layout_constraintBottom_toBottomOf="@id/profile4Text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/profile4Text" />
+
+        <TextView
+            android:id="@+id/profile4Text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="7dp"
+            android:text="2019/09/24 예원교회 8박 10일 캠프"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/profile1Icon"
+            app:layout_constraintTop_toBottomOf="@id/profile3Text" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/moreBtn"
+        style="@style/bottomBtn"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/margin_activity_default"
+        android:layout_marginBottom="@dimen/margin_activity_default"
+        android:text="더 보기"
+        app:layout_constraintBottom_toBottomOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

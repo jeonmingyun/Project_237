@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
 
         supportFragmentManager.beginTransaction().add(R.id.mainFrame, CountryInfoFragment()).commit()
 
+        binding.mainBottomMenu.itemIconTintList = null
         binding.mainBottomMenu.setOnItemSelectedListener {
             replaceFragment(
                 when (it.itemId) {

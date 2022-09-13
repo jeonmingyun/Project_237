@@ -4,25 +4,25 @@
         android:title="Home"
         android:enabled="true"
         android:id="@+id/menu_home"
-        android:icon="@drawable/ic_baseline_search_24" />
+        android:icon="@drawable/menu_btn_country" />
     <item
         android:title="Search"
         android:enabled="true"
         android:id="@+id/menu_search"
-        android:icon="@drawable/ic_baseline_search_24" />
+        android:icon="@drawable/menu_btn_search" />
     <item
         android:title="Alarm"
         android:enabled="true"
         android:id="@+id/menu_alarm"
-        android:icon="@drawable/ic_baseline_search_24" />
+        android:icon="@drawable/menu_btn_alarm" />
     <item
         android:title="PrayNote"
         android:enabled="true"
         android:id="@+id/menu_pray_note"
-        android:icon="@drawable/ic_baseline_search_24" />
+        android:icon="@drawable/menu_btn_praynote" />
 <!--    <item-->
 <!--        android:title="MyPage"-->
 <!--        android:enabled="true"-->
 <!--        android:id="@+id/menu_my_page"-->
-<!--        android:icon="@drawable/ic_baseline_search_24" />-->
+<!--        android:icon="@drawable/menu_btn_mypage" />-->
 </menu>

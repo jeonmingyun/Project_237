@@ -10,7 +10,7 @@
     <item android:id="@android:id/progress">
         <scale android:scaleWidth="100%">
             <shape>
-                <solid android:color="#ff3a62"/>
+                <solid android:color="@color/app_yellow"/>
                 <corners android:radius="10dp"/>
             </shape>
         </scale>

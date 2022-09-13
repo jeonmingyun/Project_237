@@ -40,6 +40,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/ic_baseline_check_circle_outline_24" />
+            android:padding="5dp"
+            android:src="@drawable/dailymission_bar_check" />
     </RelativeLayout>
 </RelativeLayout>
