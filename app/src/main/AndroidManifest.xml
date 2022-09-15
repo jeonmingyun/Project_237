@@ -10,6 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Spy237">
         <activity
+            android:name=".ui.missionary.MissionaryDetailActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".ui.missionary.MissionaryProfileActivity"
             android:exported="false"
             android:screenOrientation="portrait" />

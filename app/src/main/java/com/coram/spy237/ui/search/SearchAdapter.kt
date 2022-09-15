@@ -1,18 +1,24 @@
 package com.coram.spy237.ui.search
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.coram.spy237.R
 import com.coram.spy237.model.SearchModel
+import com.coram.spy237.ui.missionary.MissionaryProfileActivity
 
-class SearchAdapter(val context: Context, var itemList: ArrayList<SearchModel>) :
+class SearchAdapter(val context: Context, var itemList: List<SearchModel>) :
     RecyclerView.Adapter<SearchAdapter.MyViewHolder>() {
+
+    val testName = "김동길"
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         return MyViewHolder(
             LayoutInflater.from(context).inflate(R.layout.item_country_search_list, parent, false)
@@ -36,6 +42,14 @@ class SearchAdapter(val context: Context, var itemList: ArrayList<SearchModel>) 
             this.item = item
             setSearchIcon(item)
             searchItemText.text = item.searchText
+
+            itemView.setOnClickListener {
+                if (item.searchText == testName) {
+                    openMissionaryProfile()
+                } else {
+                    Toast.makeText(context, "등록된 정보가 없습니다", Toast.LENGTH_SHORT).show()
+                }
+            }
         }
 
         fun setSearchIcon(item: SearchModel) {
@@ -46,5 +60,10 @@ class SearchAdapter(val context: Context, var itemList: ArrayList<SearchModel>) 
                 Glide.with(itemView).load(item.imageUri).into(searchItemIcon)
             }
         }
+
+        fun openMissionaryProfile() {
+            context.startActivity(Intent(context, MissionaryProfileActivity::class.java))
+        }
+
     }
 }

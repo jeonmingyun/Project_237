@@ -7,11 +7,26 @@
     android:background="@color/white"
     tools:context=".ui.search.SearchFragment">
 
+    <TextView
+        android:id="@+id/searchTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_activity_default"
+        android:text="탐색하기"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/searchContainer"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_marginTop="20dp"
+        android:background="@color/app_yellow"
+        android:paddingStart="@dimen/margin_activity_default"
+        android:paddingEnd="@dimen/margin_activity_default"
+        app:layout_constraintTop_toBottomOf="@id/searchTitle">
 
         <Spinner
             android:id="@+id/searchSpinner"
@@ -23,7 +38,7 @@
             android:id="@+id/searchEt"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:background="@color/white"
+            android:background="@android:color/transparent"
             android:imeOptions="actionSearch"
             android:inputType="text"
             android:maxLines="1"
@@ -35,12 +50,17 @@
         android:id="@+id/searchWordContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_activity_default"
+        android:layout_marginTop="@dimen/margin_activity_default"
+        android:layout_marginEnd="@dimen/margin_activity_default"
         android:orientation="vertical"
+        android:visibility="gone"
         app:layout_constraintTop_toBottomOf="@id/searchContainer">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
             android:text="최근 검색어" />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -53,6 +73,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
             android:text="추천 검색어" />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -67,6 +88,8 @@
         android:id="@+id/searchRecycler"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_activity_default"
+        android:layout_marginEnd="@dimen/margin_activity_default"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintTop_toBottomOf="@id/searchWordContainer"
         tools:itemCount="3"

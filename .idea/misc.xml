@@ -4,6 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/drawable/btn_bg_bottom.xml" value="0.5697916666666667" />
+        <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/drawable/btn_bg_bottom_green.xml" value="0.40925925925925927" />
+        <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/drawable/btn_bg_shape_green.xml" value="0.40925925925925927" />
         <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/drawable/btn_prev_arrow.xml" value="0.34479166666666666" />
         <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/drawable/check_box_circle.xml" value="0.3489583333333333" />
         <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.34479166666666666" />
@@ -11,6 +13,8 @@
         <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/drawable/ic_baseline_close_24.xml" value="0.34479166666666666" />
         <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/drawable/ic_baseline_navigate_next_24.xml" value="0.34479166666666666" />
         <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/drawable/ic_framea222.xml" value="0.34479166666666666" />
+        <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/drawable/icon_with_pray.xml" value="0.5697916666666667" />
+        <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/drawable/icon_with_pray_drawable.xml" value="0.40925925925925927" />
         <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/drawable/menu_btn_alarm.xml" value="0.25" />
         <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/drawable/menu_btn_country.xml" value="0.25" />
         <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/drawable/menu_btn_mypage.xml" value="0.25" />
@@ -20,12 +24,17 @@
         <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/drawable/switch.xml" value="0.3489583333333333" />
         <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/layout/activity_main.xml" value="0.5" />
         <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/layout/activity_missionary.xml" value="0.5536458333333333" />
+        <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/layout/activity_missionary_detail.xml" value="0.5" />
+        <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/layout/activity_missionary_profile.xml" value="0.5536458333333333" />
         <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/layout/fragment_alarm.xml" value="0.3541666666666667" />
         <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/layout/fragment_alarm_add.xml" value="0.3328125" />
+        <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/layout/fragment_search.xml" value="0.2689969604863222" />
         <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/layout/item_calendar_list.xml" value="0.3328125" />
         <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/layout/item_missionary_search_list.xml" value="0.5536458333333333" />
         <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/layout/item_pray_list_default.xml" value="0.3328125" />
         <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/layout/item_pray_list_selected.xml" value="0.75" />
+        <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/layout/item_recent_search_word_list.xml" value="0.75" />
+        <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/layout/item_recommend_search_word_list.xml" value="0.67" />
         <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/menu/main_bottom_menu.xml" value="0.2074074074074074" />
       </map>
     </option>

@@ -1,7 +1,9 @@
 package com.coram.spy237.ui.search
 
 import android.os.Bundle
-import android.view.KeyEvent
+import android.text.Editable
+import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,9 +22,9 @@ import java.util.*
 class SearchFragment : Fragment() {
     // 샘플용 데이터
     private val mockDataRecentSearchItems =
-        arrayOf("aaa", "bbbb", "ddd", "bbbb", "ddd", "bbbb", "ddd", "bbbb", "ddd")
+        arrayOf("김동길", "전민균", "김운비", "신윤수", "김성재", "김성재", "유효진", "김상아", "오수려")
     private val mockDataRecommendSearchItems =
-        arrayOf("aaa", "bbbb", "ddd", "bbbb", "ddd", "bbbb", "ddd", "bbbb", "ddd")
+        arrayOf("김동길", "전민균", "김운비", "신윤수", "김성재", "김성재", "유효진", "김상아", "오수려")
 
     // view binding
     private var mBinding: FragmentSearchBinding? = null
@@ -45,15 +47,28 @@ class SearchFragment : Fragment() {
         initSearchTagRecycler(binding.recentSearchWordRecycler, mockDataRecentSearchItems)
         initSearchTagRecycler(binding.recommendSearchWordRecycler, mockDataRecommendSearchItems)
 
-        binding.searchEt.setOnKeyListener { _, keyCode, event ->
-            if ((event.action == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
-                val searchText = binding.searchEt.text.toString()
-                onSearch(searchText)
-                true
-            } else {
-                false
+        binding.searchEt.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
             }
-        }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+                val searchText = p0.toString()
+                onSearch(searchText)
+            }
+        })
+        // todo 검색 기능 : 엔터
+//        binding.searchEt.setOnKeyListener { _, keyCode, event ->
+//            if ((event.action == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
+//                val searchText = binding.searchEt.text.toString()
+//                onSearch(searchText)
+//                true
+//            } else {
+//                false
+//            }
+//        }
     }
 
     override fun onDestroyView() {
@@ -63,10 +78,16 @@ class SearchFragment : Fragment() {
     }
 
     private fun onSearch(searchText: String) {
+        val searchType = binding.searchSpinner.selectedItem.toString()
+
         if (searchText.isBlank()) {
             initSearching(false)
         } else {
-            initSearchRecycler(SearchModel.getTestList(searchText))
+            if (searchType == "선교국가")
+                initSearchRecycler(SearchModel.getTestCountryList(searchText))
+            else
+                initSearchRecycler(SearchModel.getTestNameList(searchText))
+
             initSearching(true)
         }
     }
@@ -76,12 +97,12 @@ class SearchFragment : Fragment() {
             binding.searchWordContainer.visibility = View.GONE
             binding.searchRecycler.visibility = View.VISIBLE
         } else {
-            binding.searchWordContainer.visibility = View.VISIBLE
+            binding.searchWordContainer.visibility = View.GONE // 필요시 visible
             binding.searchRecycler.visibility = View.GONE
         }
     }
 
-    private fun initSearchRecycler(itemList: ArrayList<SearchModel>) {
+    private fun initSearchRecycler(itemList: List<SearchModel>) {
         val adapter = SearchAdapter(requireContext(), itemList)
         binding.searchRecycler.adapter = adapter
     }
@@ -145,7 +166,7 @@ class SearchFragment : Fragment() {
     private fun setSearchHint(position: Int) {
         when (position) {
             0 -> binding.searchEt.hint = "국가명을 입력해주세요"
-            1 -> binding.searchEt.hint = "선교사님 이름을 입력해주세요"
+            1 -> binding.searchEt.hint = "이름을 입력해주세요"
         }
     }
 }
