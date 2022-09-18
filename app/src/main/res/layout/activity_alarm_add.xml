@@ -9,7 +9,7 @@
     <LinearLayout
         android:id="@+id/timePickerContainer"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:gravity="center"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
         app:layout_constraintTop_toTopOf="parent">
@@ -18,27 +18,34 @@
             android:id="@+id/amPmPicker"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="30dp"
             android:selectionDividerHeight="0dp"
-            android:timePickerMode="spinner" />
+            android:theme="@style/numberPickerSizeSmall" />
 
         <NumberPicker
             android:id="@+id/hourPicker"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
             android:selectionDividerHeight="0dp"
+            android:dividerPadding="20dp"
+            android:theme="@style/numberPickerSizeNormal"
             android:timePickerMode="spinner" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
             android:text=":"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:textSize="40sp" />
 
         <NumberPicker
             android:id="@+id/minPicker"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:selectionDividerHeight="0dp"
+            android:theme="@style/numberPickerSizeNormal"
             android:timePickerMode="spinner" />
     </LinearLayout>
 

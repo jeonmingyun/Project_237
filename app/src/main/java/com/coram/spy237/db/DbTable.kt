@@ -37,4 +37,28 @@ private constructor() {
                 + ");")
         const val QUERY_DROP = "drop table if exists " + TABLENAME
     }
+
+    /*알람 정보*/
+    object Alarm : BaseColumns {
+        const val TABLENAME = "alarm"
+        const val COLUMN_ID = "_id"
+        const val COLUMN_TIME = "COLUMN_TIME"
+        const val COLUMN_CONTENT = "COLUMN_CONTENT"
+        const val COLUMN_HEADER_CONTENT = "COLUMN_HEADER_CONTENT"
+        const val COLUMN_IS_SUCCEED = "COLUMN_IS_SUCCEED"
+        const val COLUMN_IS_SOUND_ALARM = "COLUMN_IS_SOUND_ALARM"
+        const val COLUMN_IS_VIB_ALARM = "COLUMN_IS_VIB_ALARM"
+        const val COLUMN_IS_PUSH_ALARM = "COLUMN_IS_PUSH_ALARM"
+        const val QUERY_CREATE = ("create table IF NOT EXISTS " + TABLENAME + "("
+                + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+                + COLUMN_TIME + " text,"
+                + COLUMN_CONTENT + " text,"
+                + COLUMN_HEADER_CONTENT + " text,"
+                + COLUMN_IS_SUCCEED + " text,"
+                + COLUMN_IS_SOUND_ALARM + " text,"
+                + COLUMN_IS_VIB_ALARM + " text,"
+                + COLUMN_IS_PUSH_ALARM + " text"
+                + ");")
+        const val QUERY_DROP = "drop table if exists " + TABLENAME
+    }
 }

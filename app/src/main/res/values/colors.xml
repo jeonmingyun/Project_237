@@ -13,4 +13,5 @@
     <color name="app_pink">#ff6464</color>
     <color name="app_green">#91c483</color>
     <color name="app_gray_light">#eeeeee</color>
+    <color name="app_gray_dark">#afafaf</color>
 </resources>

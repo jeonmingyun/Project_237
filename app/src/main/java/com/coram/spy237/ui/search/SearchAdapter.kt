@@ -1,7 +1,6 @@
 package com.coram.spy237.ui.search
 
 import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,9 +9,10 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.coram.spy237.MainActivity
 import com.coram.spy237.R
 import com.coram.spy237.model.SearchModel
-import com.coram.spy237.ui.missionary.MissionaryProfileActivity
+import com.coram.spy237.ui.missionary.MissionaryProfileFragment
 
 class SearchAdapter(val context: Context, var itemList: List<SearchModel>) :
     RecyclerView.Adapter<SearchAdapter.MyViewHolder>() {
@@ -62,7 +62,9 @@ class SearchAdapter(val context: Context, var itemList: List<SearchModel>) :
         }
 
         fun openMissionaryProfile() {
-            context.startActivity(Intent(context, MissionaryProfileActivity::class.java))
+            (context as MainActivity).replaceFragmentWithBackPress(
+                MissionaryProfileFragment()
+            )
         }
 
     }

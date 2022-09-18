@@ -5,6 +5,7 @@ import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import com.coram.spy237.model.db.AlarmModel
 import com.coram.spy237.model.db.CountryModel
 
 class DbOpenHelper(context: Context?) :
@@ -19,11 +20,13 @@ class DbOpenHelper(context: Context?) :
     override fun onCreate(db: SQLiteDatabase) {
         db.execSQL(DbTable.Member.QUERY_CREATE)
         db.execSQL(DbTable.Country.QUERY_CREATE)
+        db.execSQL(DbTable.Alarm.QUERY_CREATE)
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
         db.execSQL(DbTable.Member.QUERY_DROP)
         db.execSQL(DbTable.Country.QUERY_DROP)
+        db.execSQL(DbTable.Alarm.QUERY_DROP)
     }
 
     /**
@@ -82,7 +85,8 @@ class DbOpenHelper(context: Context?) :
 
     fun selectCountries(countryName: String): Cursor {
         mdb = this.readableDatabase
-        val sql = "select * from ${DbTable.Country.TABLENAME} where ${DbTable.Country.COLUMN_NAME} like '%$countryName%'"
+        val sql =
+            "select * from ${DbTable.Country.TABLENAME} where ${DbTable.Country.COLUMN_NAME} like '%$countryName%'"
         return mdb.rawQuery(sql, null)
     }
 
@@ -100,5 +104,57 @@ class DbOpenHelper(context: Context?) :
         return result != -1L // success
     }
     // END Country
+
+    // START Alarm
+    fun selectAllAlarm(): Cursor {
+        mdb = this.readableDatabase
+        val sql = "select * from ${DbTable.Alarm.TABLENAME} order by ${DbTable.Alarm.COLUMN_TIME} asc"
+        return mdb.rawQuery(sql, null)
+    }
+
+    fun insertAlarm(model: AlarmModel): Boolean {
+        mdb = this.writableDatabase
+        val values = ContentValues()
+        values.put(DbTable.Alarm.COLUMN_TIME, model.time)
+        values.put(DbTable.Alarm.COLUMN_CONTENT, model.content)
+        values.put(DbTable.Alarm.COLUMN_HEADER_CONTENT, model.headerContent)
+        values.put(DbTable.Alarm.COLUMN_IS_SUCCEED, model.isSucceed)
+        values.put(DbTable.Alarm.COLUMN_IS_SOUND_ALARM, model.isSoundAlarm)
+        values.put(DbTable.Alarm.COLUMN_IS_VIB_ALARM, model.isVibAlarm)
+        values.put(DbTable.Alarm.COLUMN_IS_PUSH_ALARM, model.isPushAlarm)
+        val result = mdb.insert(DbTable.Alarm.TABLENAME, null, values)
+
+        return result != -1L // success
+    }
+
+    fun updateAlarm(model: AlarmModel): Boolean {
+        mdb = this.writableDatabase
+        val values = ContentValues()
+        values.put(DbTable.Alarm.COLUMN_TIME, model.time)
+        values.put(DbTable.Alarm.COLUMN_CONTENT, model.content)
+        values.put(DbTable.Alarm.COLUMN_HEADER_CONTENT, model.headerContent)
+        values.put(DbTable.Alarm.COLUMN_IS_SUCCEED, model.isSucceed)
+        values.put(DbTable.Alarm.COLUMN_IS_SOUND_ALARM, model.isSoundAlarm)
+        values.put(DbTable.Alarm.COLUMN_IS_VIB_ALARM, model.isVibAlarm)
+        values.put(DbTable.Alarm.COLUMN_IS_PUSH_ALARM, model.isPushAlarm)
+        val result = mdb.update(
+            DbTable.Alarm.TABLENAME,
+            values,
+            DbTable.Alarm.COLUMN_ID.toString() + "=?",
+            arrayOf(model.id.toString())
+        )
+        return result != 0 // success
+    }
+
+    fun deleteAlarm(id: Int): Boolean {
+        mdb = this.writableDatabase
+        val result = mdb.delete(
+            DbTable.Alarm.TABLENAME,
+            DbTable.Alarm.COLUMN_ID.toString() + "=?",
+            arrayOf(id.toString())
+        )
+        return result != 0 // success
+    }
+    // END Alarm
 
 }

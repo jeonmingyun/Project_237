@@ -39,6 +39,7 @@
         app:layout_constraintTop_toBottomOf="@id/toolbar">
 
         <ImageView
+            android:id="@+id/prayNoteImg"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:background="#efefef"
@@ -52,11 +53,13 @@
             app:layout_constraintBottom_toBottomOf="parent">
 
             <ImageButton
-                android:layout_width="wrap_content"
+                android:id="@+id/prevBtn"
+                android:layout_width="30dp"
                 android:layout_height="match_parent"
                 android:layout_marginEnd="30dp"
+                android:scaleType="@null"
                 android:background="@android:color/transparent"
-                android:src="@drawable/btn_prev_arrow"
+                android:src="@drawable/page_prev"
                 app:layout_constraintEnd_toStartOf="@id/pagingIndicator1" />
 
             <View
@@ -64,7 +67,7 @@
                 android:layout_width="@dimen/pagingIndicatorSize"
                 android:layout_height="@dimen/pagingIndicatorSize"
                 android:layout_marginEnd="7dp"
-                android:background="@color/app_yellow"
+                android:background="@drawable/btn_page_on"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/pagingIndicator2"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -73,7 +76,7 @@
                 android:id="@+id/pagingIndicator2"
                 android:layout_width="@dimen/pagingIndicatorSize"
                 android:layout_height="@dimen/pagingIndicatorSize"
-                android:background="@color/app_yellow"
+                android:background="@drawable/btn_page_on"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -84,17 +87,19 @@
                 android:layout_width="@dimen/pagingIndicatorSize"
                 android:layout_height="@dimen/pagingIndicatorSize"
                 android:layout_marginStart="7dp"
-                android:background="@color/app_yellow"
+                android:background="@drawable/btn_page_on"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@id/pagingIndicator2"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageButton
-                android:layout_width="wrap_content"
+                android:id="@+id/nextBtn"
+                android:layout_width="30dp"
                 android:layout_height="match_parent"
                 android:layout_marginStart="30dp"
                 android:background="@android:color/transparent"
-                android:src="@drawable/btn_next_arrow"
+                android:scaleType="@null"
+                android:src="@drawable/page_next"
                 app:layout_constraintStart_toEndOf="@id/pagingIndicator3" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="margin_activity_default">15dp</dimen>
+    <dimen name="margin_activity_default">20dp</dimen>
     <dimen name="divider_default">1dp</dimen>
     <dimen name="padding_calendar_header_item_15">15dp</dimen>
     <dimen name="padding_calendar_header_item_20">20dp</dimen>
-    <dimen name="toolbarTitle">20sp</dimen>
-    <dimen name="pagingIndicatorSize">5dp</dimen>
+    <dimen name="toolbarTitle">24sp</dimen>
+    <dimen name="pagingIndicatorSize">7dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="pray_set_radio_btn">40dp</dimen>
 </resources>

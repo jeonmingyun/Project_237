@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="?android:attr/selectableItemBackground">
+    android:background="@drawable/bg_alarm_item_green"
+    android:paddingBottom="@dimen/margin_activity_default">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/prayHeader"
@@ -19,17 +20,26 @@
             android:id="@+id/prayHeaderTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="17sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="오전 8:00" />
 
-        <CheckBox
-            android:id="@+id/prayHeaderChkBox"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:background="@drawable/check_box_circle"
-            android:button="@android:color/transparent"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="기도 중"
+            android:textColor="@color/app_gray_light"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintEnd_toStartOf="@id/prayLoading"
+            app:layout_constraintTop_toTopOf="@id/prayLoading"
+            app:layout_constraintBottom_toBottomOf="@id/prayLoading"/>
+        <ImageView
+            android:id="@+id/prayLoading"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/pray_check_ing"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -40,9 +50,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_activity_default"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="@dimen/margin_activity_default"
         android:ellipsize="end"
         android:maxLines="1"
+        android:textColor="@color/white"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/prayHeader"
         tools:text="Philippines | Joshua 2:1-3" />
@@ -52,17 +65,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_activity_default"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="@dimen/margin_activity_default"
+        android:textColor="@color/white"
+        android:textSize="15sp"
         app:layout_constraintTop_toBottomOf="@id/prayHeaderContent"
         tools:text="블라 블라 블라 블라 블라 블라 블라 블라 블라 블라 블라 블라 블라 블라 블라 블라 블라 블라 블라 블라 블라 블라 블라 블라 블라 블라 블라 블라 블라 블라 " />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/seeMoreBtn"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/btn_bg_shape_white"
         android:stateListAnimator="@null"
-        android:text="See More"
+        android:text="기도하기"
         android:textAllCaps="false"
+        android:textColor="@color/app_gray_dark"
+        android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/prayContent"

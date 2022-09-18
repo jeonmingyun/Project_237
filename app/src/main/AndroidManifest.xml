@@ -10,11 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Spy237">
         <activity
-            android:name=".ui.missionary.MissionaryDetailActivity"
+            android:name=".ui.alarm.AlarmAddActivity"
             android:exported="false"
-            android:screenOrientation="portrait" />
+            android:theme="@style/TransparentTheme" />
         <activity
-            android:name=".ui.missionary.MissionaryProfileActivity"
+            android:name=".ui.my_page.PrayModalActivity"
+            android:exported="false"
+            android:theme="@style/TransparentTheme" />
+        <activity
+            android:name=".ui.missionary.MissionaryDetailActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity

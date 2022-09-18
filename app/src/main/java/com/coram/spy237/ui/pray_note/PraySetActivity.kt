@@ -52,15 +52,21 @@ class PraySetActivity : AppCompatActivity(), View.OnClickListener {
             PrefManager.PREF_PRAY_NOTE_LANG,
             binding.languageSpin.selectedItem.toString()
         )
-        // TODO: 2022-09-11 radio group 선택 데이터 전송 
+        // TODO: 2022-09-11 radio group 선택 데이터 전송
         PrefManager.setString(
             this,
             PrefManager.PREF_PRAY_NOTE_HIGHLIGHT,
             binding.highlightRadioGroup.toString()
         )
 
+        val datePicker = binding.calender
+        val day: Int = datePicker.getDayOfMonth()
+        val month: Int = datePicker.getMonth() + 1
+        val year: Int = datePicker.getYear()
+
         val intent = intent
         intent.putExtra("lang", binding.languageSpin.selectedItem.toString())
+        intent.putExtra("date", "$year-$month-$day")
         setResult(RESULT_OK, intent)
 
         finish()

@@ -1,5 +1,7 @@
 package com.coram.spy237.ui.alarm
 
+import android.content.Intent
+import android.database.Cursor
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,9 +9,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.coram.spy237.MainActivity
 import com.coram.spy237.databinding.FragmentAlarmBinding
-import com.coram.spy237.model.AlarmModel
+import com.coram.spy237.db.DbOpenHelper
+import com.coram.spy237.db.DbTable
 import com.coram.spy237.model.CalendarItemModel
+import com.coram.spy237.model.db.AlarmModel
 import com.coram.spy237.ui.alarm.adapter.CalendarHeaderAdapter
+import com.coram.spy237.util.DateFormatUtil
+import com.coram.spy237.util.Utils
 import java.util.*
 
 class AlarmFragment : Fragment(), View.OnClickListener {
@@ -17,12 +23,20 @@ class AlarmFragment : Fragment(), View.OnClickListener {
     private var mBinding: FragmentAlarmBinding? = null
     private val binding get() = mBinding!!
 
+    // DB
+    private lateinit var dbHelper: DbOpenHelper
+
+    // 캘린더 가데이터
+    private var checkedCalendar = arrayListOf<Int>(
+        1, 3, 4, 8, 11, 12, 15, 16, 17, 20, 21, 23, 25, 27, 28
+    )
+
     private var calendar: Calendar? = null
     private var year = 0
-    private  var month:Int = 0
-    private  var date:Int = 0
-    private  var maxDateOfMonth:Int = 0
-    private  var firstDayOfMonth:Int = 0
+    private var month: Int = 0
+    private var date: Int = 0
+    private var maxDateOfMonth: Int = 0
+    private var firstDayOfMonth: Int = 0
     private var itemList: ArrayList<CalendarItemModel>? = null
 
     override fun onCreateView(
@@ -37,17 +51,58 @@ class AlarmFragment : Fragment(), View.OnClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setMissionBarEnergy(40)
-        initAlarmRecycler(AlarmModel.getTestList())
+        //db
+        dbHelper = DbOpenHelper(context)
 
+        binding.prayAddBtn.setOnClickListener(this)
 
+//        binding.toolbarMenuBtn.setOnClickListener(this)
+//        dbHelper.insertCountry(CountryModel(
+//            0,
+//            "인도네시아",
+//            "아시아",
+//            "12",
+//            "2233",
+//            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQH_9ICYeo7xzTvf7f9o9LiKnGxkeBG89jGN3GRq7pllg&s"
+//        ))
+//
+//        dbHelper.insertCountry(CountryModel(
+//            0,
+//            "방글라데시",
+//            "아시아",
+//            "1",
+//            "56",
+//            "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Flag_of_Bangladesh.svg/383px-Flag_of_Bangladesh.svg.png"
+//        ))
+//
+//        dbHelper.insertCountry(CountryModel(
+//            0,
+//            "파키스탄",
+//            "아시아",
+//            "3",
+//            "233",
+//            "https://world.moleg.go.kr/oweb/images/countryFlag/PK_L.png"
+//        ))
+//
+//        dbHelper.insertCountry(CountryModel(
+//            0,
+//            "베트남",
+//            "아시아",
+//            "7",
+//            "202",
+//            "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Vietnam.svg/225px-Flag_of_Vietnam.svg.png"
+//        ))
+    }
+
+    override fun onResume() {
+        super.onResume()
+        initAlarmRecycler(getAllAlarm())
         setCurrentDate()
         setCalendarDate(year, month, date)
         setItemList(maxDateOfMonth, firstDayOfMonth)
-
         initWeekCalendar(itemList!!)
-
-        binding.prayAddBtn.setOnClickListener(this)
+        setMissionBarEnergy(checkedCalendar.size * 100 / maxDateOfMonth)
+        binding.rateText.text = "${checkedCalendar.size} / $maxDateOfMonth"
     }
 
     override fun onDestroyView() {
@@ -58,7 +113,9 @@ class AlarmFragment : Fragment(), View.OnClickListener {
 
     override fun onClick(view: View?) {
         if (view == binding.prayAddBtn) {
-            (activity as MainActivity).replaceFragmentWithBackPress(AlarmAddFragment.newInstance(AlarmAddFragment.BUNDLE_VAL_FLAG_ADD))
+            val intent = Intent(context, AlarmAddActivity::class.java)
+            intent.putExtra(AlarmAddActivity.BUNDLE_KEY_FLAG, AlarmAddActivity.BUNDLE_VAL_FLAG_ADD)
+            startActivity(intent)
         }
     }
 
@@ -67,14 +124,24 @@ class AlarmFragment : Fragment(), View.OnClickListener {
     }
 
     private fun initAlarmRecycler(itemList: ArrayList<AlarmModel>) {
-        val adapter = AlarmAdapter(requireContext(), itemList, 1)
+        val currentTime = DateFormatUtil.getCurrentDate(DateFormatUtil.DATE_FORMAT_2)
+        var position = 0
+        for (i in 0 until itemList.size) {
+            if (itemList[i].time.compareTo(currentTime) > 0) {
+                position = i
+                break
+            }
+        }
+        val adapter = AlarmAdapter(requireContext(), itemList, position)
         binding.prayRecycler.adapter = adapter
     }
 
     private fun initWeekCalendar(itemList: ArrayList<CalendarItemModel>) {
         val adapter = CalendarHeaderAdapter(itemList)
         binding.weekCalendar.adapter = adapter
+        binding.weekCalendar.scrollToPosition(date - 1)
     }
+
     private fun setCurrentDate(year: Int, month: Int, date: Int) {
         this.year = year
         this.month = month
@@ -108,9 +175,7 @@ class AlarmFragment : Fragment(), View.OnClickListener {
             calendarItemModel.dateOfMonth = i.toString() // 날짜
             calendarItemModel.dayOfWeek = dayStringFormat(day) // 요일
             calendarItemModel.date = dateFormat // 2020.01.01
-
-            // TODO: 2022-09-09 가데이터
-            calendarItemModel.isChecked = i == 3
+            calendarItemModel.isChecked = checkedCalendar.contains(i)
             itemList?.add(calendarItemModel)
         }
     }
@@ -127,4 +192,25 @@ class AlarmFragment : Fragment(), View.OnClickListener {
             else -> " "
         }
     }
+
+    fun getAllAlarm(): ArrayList<AlarmModel> {
+        val cursor: Cursor = dbHelper.selectAllAlarm()
+        val alarmList = arrayListOf<AlarmModel>()
+
+        while (cursor.moveToNext()) {
+            alarmList += AlarmModel(
+                cursor.getInt(cursor.getColumnIndexOrThrow(DbTable.Alarm.COLUMN_ID)),
+                cursor.getString(cursor.getColumnIndexOrThrow(DbTable.Alarm.COLUMN_TIME)),
+                cursor.getString(cursor.getColumnIndexOrThrow(DbTable.Alarm.COLUMN_CONTENT)),
+                cursor.getString(cursor.getColumnIndexOrThrow(DbTable.Alarm.COLUMN_HEADER_CONTENT)),
+                cursor.getString(cursor.getColumnIndexOrThrow(DbTable.Alarm.COLUMN_IS_SUCCEED)),
+                cursor.getString(cursor.getColumnIndexOrThrow(DbTable.Alarm.COLUMN_IS_SOUND_ALARM)),
+                cursor.getString(cursor.getColumnIndexOrThrow(DbTable.Alarm.COLUMN_IS_VIB_ALARM)),
+                cursor.getString(cursor.getColumnIndexOrThrow(DbTable.Alarm.COLUMN_IS_PUSH_ALARM))
+            )
+        }
+        cursor.close()
+        return alarmList
+    }
+
 }
