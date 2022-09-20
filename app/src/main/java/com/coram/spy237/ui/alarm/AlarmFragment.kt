@@ -1,21 +1,25 @@
 package com.coram.spy237.ui.alarm
 
+import android.app.AlarmManager
+import android.app.PendingIntent
+import android.content.Context.ALARM_SERVICE
 import android.content.Intent
 import android.database.Cursor
 import android.os.Bundle
+import android.os.SystemClock
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.coram.spy237.MainActivity
 import com.coram.spy237.databinding.FragmentAlarmBinding
 import com.coram.spy237.db.DbOpenHelper
 import com.coram.spy237.db.DbTable
 import com.coram.spy237.model.CalendarItemModel
 import com.coram.spy237.model.db.AlarmModel
+import com.coram.spy237.receiver.AlarmReceiver
+import com.coram.spy237.ui.alarm.adapter.AlarmAdapter
 import com.coram.spy237.ui.alarm.adapter.CalendarHeaderAdapter
 import com.coram.spy237.util.DateFormatUtil
-import com.coram.spy237.util.Utils
 import java.util.*
 
 class AlarmFragment : Fragment(), View.OnClickListener {
@@ -96,13 +100,44 @@ class AlarmFragment : Fragment(), View.OnClickListener {
 
     override fun onResume() {
         super.onResume()
-        initAlarmRecycler(getAllAlarm())
+        val alarmList = getAllAlarm()
+        initAlarmRecycler(alarmList)
         setCurrentDate()
         setCalendarDate(year, month, date)
         setItemList(maxDateOfMonth, firstDayOfMonth)
         initWeekCalendar(itemList!!)
         setMissionBarEnergy(checkedCalendar.size * 100 / maxDateOfMonth)
         binding.rateText.text = "${checkedCalendar.size} / $maxDateOfMonth"
+
+        // TODO: 2022-09-20 알람
+//        setAlarm(alarmList)
+    }
+
+    private fun setAlarm(alarmList: ArrayList<AlarmModel>) {
+        val alarmManager = requireContext().getSystemService(ALARM_SERVICE) as AlarmManager
+
+        val intent = Intent(context, AlarmReceiver::class.java)  // 1
+        val pendingIntent = PendingIntent.getBroadcast(
+            context,
+            AlarmReceiver.NOTIFICATION_ID,
+            intent,
+            PendingIntent.FLAG_IMMUTABLE
+        )
+
+        for (item in alarmList) {
+            val triggerTime = (SystemClock.elapsedRealtime()  // 4
+                    + 5 * 1000)
+            alarmManager.set(   // 5
+                AlarmManager.ELAPSED_REALTIME_WAKEUP,
+                triggerTime,
+                pendingIntent
+            )
+        }
+
+        if (alarmList.size == 0) {
+            alarmManager.cancel(pendingIntent)
+        }
+
     }
 
     override fun onDestroyView() {

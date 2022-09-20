@@ -18,6 +18,7 @@
             android:gravity="center"
             android:paddingStart="@dimen/margin_activity_default"
             android:text="기도수첩"
+            android:textIsSelectable="true"
             android:textSize="@dimen/toolbarTitle"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent" />
@@ -57,8 +58,8 @@
                 android:layout_width="30dp"
                 android:layout_height="match_parent"
                 android:layout_marginEnd="30dp"
-                android:scaleType="@null"
                 android:background="@android:color/transparent"
+                android:scaleType="@null"
                 android:src="@drawable/page_prev"
                 app:layout_constraintEnd_toStartOf="@id/pagingIndicator1" />
 

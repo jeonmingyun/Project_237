@@ -1,15 +1,17 @@
 package com.coram.spy237.ui.country_info
 
+import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.coram.spy237.R
-import com.coram.spy237.databinding.FragmentAlarmBinding
+import androidx.fragment.app.Fragment
+import androidx.viewpager2.widget.ViewPager2
 import com.coram.spy237.databinding.FragmentCountryInfoBinding
-import com.coram.spy237.databinding.FragmentMyPageBinding
-import com.coram.spy237.databinding.FragmentSearchBinding
+import com.coram.spy237.model.HeaderViewpagerModel
+import com.coram.spy237.model.db.CountryModel
+import com.coram.spy237.ui.country_info.adapter.PagerRecyclerAdapter
+import com.coram.spy237.ui.country_info.adapter.RankAdapter
 
 class CountryInfoFragment : Fragment() {
     // view binding
@@ -27,12 +29,24 @@ class CountryInfoFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        initHeaderViewpager(HeaderViewpagerModel().getTestList())
+        initRankRecycler(CountryModel().getRankList())
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         // view binding
         mBinding = null
+    }
+
+    private fun initHeaderViewpager(itemList: ArrayList<HeaderViewpagerModel>) {
+        binding.headerViewPager.adapter = PagerRecyclerAdapter(activity as Context, itemList)
+        binding.headerViewPager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
+    }
+
+    private fun initRankRecycler(itemList: ArrayList<CountryModel>) {
+        binding.rankRecycler.adapter = RankAdapter(requireContext(), itemList)
     }
 
 }

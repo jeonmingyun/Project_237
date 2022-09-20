@@ -24,7 +24,7 @@
             android:maxLines="1"
             android:text="Philippines | Joshua 2:1-3"
             android:textColor="@color/app_green"
-            android:textSize="17sp" 
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/closeBtn"
             app:layout_constraintStart_toStartOf="parent" />
@@ -55,14 +55,15 @@
             android:layout_height="wrap_content"
             android:background="@color/white"
             android:padding="20dp"
+            android:lineSpacingExtra="5dp"
             android:text="복음주의 교회의 성장으로 필리핀 현장에 인구성장률보다 그리스도인의 수가 빠르게 늘게 하심에 감사합니다. 이들이 영적으로 강력한 복음 공동체로 전역에서 전도 제자 운동을 일으키고 오직 복음만 전하는 교회가 확산되게 하옵소서. 4만 3000개의 지역 중 2만 3000개 지역에 교회가 없습니다. 복음에 생을 건 전도자들이 무교회 지역에 교회를 개척하는  비전을 품게 하옵소서."
-            android:textSize="15sp" />
+            android:textSize="17sp" />
     </ScrollView>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/appCompatButton"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="70dp"
         android:background="@color/app_green"
         android:backgroundTint="@color/app_green"
         android:text="아멘"

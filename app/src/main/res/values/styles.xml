@@ -1,5 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <style name="tabHighlightText">
+        <item name="android:textColor">@color/app_pink</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="tabTextGray">
+        <item name="android:layout_width">100dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@color/app_gray_light</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="yellowHeartCheckBox">
+        <item name="android:layout_width">30dp</item>
+        <item name="android:layout_height">30dp</item>
+        <item name="android:button">@android:color/transparent</item>
+    </style>
 
     <style name="toggleBtn">
         <item name="android:layout_width">45dp</item>

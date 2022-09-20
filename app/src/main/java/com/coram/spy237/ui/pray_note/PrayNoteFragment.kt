@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.coram.spy237.R
 import com.coram.spy237.databinding.FragmentPrayNoteBinding
+import com.coram.spy237.ui.pray_note.callback.MyCallback
 import com.coram.spy237.util.Utils
 
 class PrayNoteFragment : Fragment(), View.OnClickListener {
@@ -47,6 +48,9 @@ class PrayNoteFragment : Fragment(), View.OnClickListener {
         binding.toolbarMenuBtn.setOnClickListener(this)
         binding.prevBtn.setOnClickListener(this)
         binding.nextBtn.setOnClickListener(this)
+
+        // todo highlight sample
+        binding.toolbarTitle.customSelectionActionModeCallback = MyCallback(requireContext(), binding.toolbarTitle)
     }
 
     override fun onDestroyView() {

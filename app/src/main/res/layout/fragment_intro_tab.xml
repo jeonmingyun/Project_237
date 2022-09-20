@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/margin_activity_default">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Introduction"
+        android:textSize="25sp" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:layout_marginTop="20dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/mada_intro_img" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="10dp"
+        android:scaleType="centerCrop"
+        android:layout_marginTop="15dp"
+        android:adjustViewBounds="true"
+        android:layout_gravity="center"
+        android:src="@drawable/indi" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="17sp"
+        android:layout_marginTop="30dp"
+        android:text="· 마다가스카르는 동아프리카 지역에 위치한 섬나라로, 섬으로 구성된 국가 중 그 면적이 세계에서 두 번 째로 크다. \n\n\n· 기원전에도 이 섬에 인간이 존재했다는 증거가 있지만 A.D. 350-550년 오늘날의 인도네시아에 서 온 정착민과 함께 대규모 정착이 시작됐고, A.D. 1000년 경 아프리카에서 이민자들이 도착했다."/>
+</LinearLayout>

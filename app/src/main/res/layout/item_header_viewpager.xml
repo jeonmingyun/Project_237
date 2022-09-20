@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/countryImg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/country_img_blur"
+        app:layout_constraintBottom_toBottomOf="@id/countryImg"
+        app:layout_constraintEnd_toEndOf="@id/countryImg"
+        app:layout_constraintStart_toStartOf="@id/countryImg"
+        app:layout_constraintTop_toTopOf="@id/countryImg" />
+
+    <TextView
+        android:id="@+id/countryName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_activity_default"
+        android:layout_marginBottom="10sp"
+        android:text="마다가스카르"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/countryTitle"
+        app:layout_constraintStart_toStartOf="@id/countryImg" />
+
+    <TextView
+        android:id="@+id/countryTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_activity_default"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="@dimen/margin_activity_default"
+        android:text="세계에서 4번째로 큰 섬\n그리고 사역자"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="@id/countryImg"
+        app:layout_constraintEnd_toStartOf="@+id/heartBtn"
+        app:layout_constraintStart_toStartOf="@id/countryImg" />
+
+    <CheckBox
+        android:id="@+id/heartBtn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="@dimen/margin_activity_default"
+        android:layout_marginBottom="@dimen/margin_activity_default"
+        android:background="@drawable/btn_heart"
+        android:button="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

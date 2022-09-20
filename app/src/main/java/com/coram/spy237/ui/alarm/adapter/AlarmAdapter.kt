@@ -1,4 +1,4 @@
-package com.coram.spy237.ui.alarm
+package com.coram.spy237.ui.alarm.adapter
 
 import android.content.Context
 import android.content.Intent
@@ -12,9 +12,9 @@ import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.coram.spy237.MainActivity
 import com.coram.spy237.R
 import com.coram.spy237.model.db.AlarmModel
+import com.coram.spy237.ui.alarm.AlarmAddActivity
 import com.coram.spy237.ui.my_page.PrayModalActivity
 
 
@@ -81,7 +81,10 @@ class AlarmAdapter(
 
             itemView.setOnLongClickListener {
                 val intent = Intent(context, AlarmAddActivity::class.java)
-                intent.putExtra(AlarmAddActivity.BUNDLE_KEY_FLAG, AlarmAddActivity.BUNDLE_VAL_FLAG_EDIT)
+                intent.putExtra(
+                    AlarmAddActivity.BUNDLE_KEY_FLAG,
+                    AlarmAddActivity.BUNDLE_VAL_FLAG_EDIT
+                )
                 intent.putExtra(AlarmAddActivity.BUNDLE_KEY_ALARM_MODEL, item)
                 context.startActivity(intent)
 
@@ -118,7 +121,10 @@ class AlarmAdapter(
 
             itemView.setOnLongClickListener {
                 val intent = Intent(context, AlarmAddActivity::class.java)
-                intent.putExtra(AlarmAddActivity.BUNDLE_KEY_FLAG, AlarmAddActivity.BUNDLE_VAL_FLAG_EDIT)
+                intent.putExtra(
+                    AlarmAddActivity.BUNDLE_KEY_FLAG,
+                    AlarmAddActivity.BUNDLE_VAL_FLAG_EDIT
+                )
                 intent.putExtra(AlarmAddActivity.BUNDLE_KEY_ALARM_MODEL, item)
                 context.startActivity(intent)
 
