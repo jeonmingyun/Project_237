@@ -1,12 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="@dimen/margin_activity_default">
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Travel"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/some_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="top"
+        android:text="세계에서 4번째로 큰 섬. 희귀 동식물의 천국"
+        android:textColor="@color/app_yellow"
+        android:textSize="17sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="· 내전이 빈번한 아프리카 타국들에 비해 치 안이 양호하나, 도시와 여행지에는 생계형 범 죄자가 많고 외곽지역에서는 무장강도도 있기 에 가이드를 동행해야 한다. \n\n· 2022년 9월, 인천공항(ICN)에서 안타나나 리보 이바투공항(TNR)까지 직항은 없으나 최 단시간 여정은 에디오피아를 경유하여 편도 18.5 시간이 소요된다."
+        android:textSize="17sp"
+        tools:layout_editor_absoluteX="20dp" />
+
+    <ImageView
+        android:layout_width="@dimen/travel_icon_width"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/travel_icon_top_margin"
+        android:adjustViewBounds="true"
+        android:src="@drawable/icon_airplane" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
         android:gravity="center"
-        android:text="travel"
-        android:textSize="40sp" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:text="경유 1회\n최단 비행 18.5시간\n최대 60일 관광비자"
+        android:textSize="18sp" />
+
+    <ImageView
+        android:layout_width="@dimen/travel_icon_width"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/travel_icon_top_margin"
+        android:adjustViewBounds="true"
+        android:src="@drawable/icon_money" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="유로, 미국달러, 영국 파운드로 환전 가능"
+        android:textSize="18sp" />
+</LinearLayout>

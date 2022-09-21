@@ -8,4 +8,6 @@
     <dimen name="pagingIndicatorSize">7dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="pray_set_radio_btn">40dp</dimen>
+    <dimen name="travel_icon_width">70sp</dimen>
+    <dimen name="travel_icon_top_margin">60dp</dimen>
 </resources>

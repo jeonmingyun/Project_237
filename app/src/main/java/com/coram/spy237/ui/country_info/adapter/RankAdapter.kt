@@ -10,6 +10,7 @@ import com.coram.spy237.MainActivity
 import com.coram.spy237.R
 import com.coram.spy237.model.db.CountryModel
 import com.coram.spy237.ui.country_info.CountryDetailFragment
+import com.coram.spy237.util.PrefManager
 import com.coram.spy237.util.Utils
 
 class RankAdapter(
@@ -49,7 +50,7 @@ class RankAdapter(
             if (v == this.itemView) {
                 when (item!!.name) {
                     "마다가스카르" -> {
-                        (context as MainActivity).replaceFragmentWithBackPress(CountryDetailFragment())
+                        (context as MainActivity).replaceFragmentWithBackPress(CountryDetailFragment().newInstance(true))
                     }
                     else -> {
                         Utils.onToast(context, "해당 국가 정보가 없습니다")

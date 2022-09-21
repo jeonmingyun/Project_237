@@ -46,7 +46,7 @@ class PagerRecyclerAdapter(
             itemView.setOnClickListener {
                 when (item.name) {
                     "마다가스카르" -> {
-                        (context as MainActivity).replaceFragmentWithBackPress(CountryDetailFragment())
+                        (context as MainActivity).replaceFragmentWithBackPress(CountryDetailFragment().newInstance(false))
                     }
                     else -> {
                         Utils.onToast(context, "해당 국가 정보가 없습니다")
