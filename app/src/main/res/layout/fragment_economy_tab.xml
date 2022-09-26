@@ -19,7 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
-        android:text="· 세계 최빈국 중 하나로, 철도와 도로교통은 매우 열악하여 비포장된 구간이 대다수이다. \n\n· 미개발 천연자원이 풍부하 나, 자본시장 부재, 사법시스템 취약, 정부부패 만연 등 걸림돌이 많다....더보기"
+        android:text="· 세계 최빈국 중 하나로, 철도와 도로교통은 매우 열악하여 비포장된 구간이 대다수이다. \n\n· 미개발 천연자원이 풍부하 나, 자본시장 부재, 사법시스템 취약, 정부부패 만연 등 걸림돌이 많다."
         android:textSize="17sp"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
         tools:layout_editor_absoluteX="20dp" />

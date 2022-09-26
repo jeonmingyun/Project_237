@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="20dp"
+    android:paddingBottom="20dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/spin_recommend"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:background="@android:color/transparent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/spin_recommend"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/country01Container"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_shape_gray"
+            android:orientation="vertical"
+            android:paddingStart="8dp"
+            android:paddingTop="15dp"
+            android:paddingEnd="8dp"
+            android:paddingBottom="15dp"
+            app:layout_constraintEnd_toStartOf="@id/country02Container"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/spin_recommend">
+
+            <TextView
+                android:id="@+id/name01"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="인도네시아"
+                android:textSize="20sp" />
+
+            <ImageView
+                android:id="@+id/flag01"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/flag_indonesia" />
+
+            <TextView
+                android:id="@+id/people01"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:text="선교사님 : 12"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/prayCount01"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:text="기도수 : 2233"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/country02Container"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/connect_hori_divider"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_shape_gray"
+            android:orientation="vertical"
+            android:paddingStart="8dp"
+            android:paddingTop="15dp"
+            android:paddingEnd="8dp"
+            android:paddingBottom="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/country01Container"
+            app:layout_constraintTop_toBottomOf="@id/spin_recommend"
+            tools:layout_editor_absoluteY="20dp">
+
+            <TextView
+                android:id="@+id/name02"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="인도네시아"
+                android:textSize="20sp" />
+
+            <ImageView
+                android:id="@+id/flag02"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/flag_indonesia" />
+
+            <TextView
+                android:id="@+id/people02"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:text="선교사님 : 12"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/prayCount02"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:text="기도수 : 2233"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/country03Container"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/connect_vertical_divider"
+            android:background="@drawable/bg_shape_gray"
+            android:orientation="vertical"
+            android:paddingStart="8dp"
+            android:paddingTop="15dp"
+            android:paddingEnd="8dp"
+            android:paddingBottom="15dp"
+            app:layout_constraintEnd_toEndOf="@id/country01Container"
+            app:layout_constraintStart_toStartOf="@id/country01Container"
+            app:layout_constraintTop_toBottomOf="@+id/country01Container">
+
+            <TextView
+                android:id="@+id/name03"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="인도네시아"
+                android:textSize="20sp" />
+
+            <ImageView
+                android:id="@+id/flag03"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/flag_indonesia" />
+
+            <TextView
+                android:id="@+id/people03"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:text="선교사님 : 12"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/prayCount03"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:text="기도수 : 2233"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/country04Container"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/connect_hori_divider"
+            android:layout_marginTop="@dimen/connect_vertical_divider"
+            android:background="@drawable/bg_shape_gray"
+            android:orientation="vertical"
+            android:paddingStart="8dp"
+            android:paddingTop="15dp"
+            android:paddingEnd="8dp"
+            android:paddingBottom="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/country03Container"
+            app:layout_constraintTop_toBottomOf="@+id/country01Container">
+
+            <TextView
+                android:id="@+id/name04"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="인도네시아"
+                android:textSize="20sp" />
+
+            <ImageView
+                android:id="@+id/flag04"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/flag_indonesia" />
+
+            <TextView
+                android:id="@+id/people04"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:text="선교사님 : 12"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/prayCount04"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:text="기도수 : 2233"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

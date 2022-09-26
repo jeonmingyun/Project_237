@@ -29,7 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
-            android:text="· 인구의 반이 기독교(개신교 27%, 가톨릭 22%)를 믿는다. \n\n· 20세기 대 형교회 중심으로 일어난 부흥운동으로 많은 사람이 기독교로 개종하였 으나 기독교인의 90%는 전통신앙에 혼합되어 거듭난 사람이 많지 않다. \n\n· 섬의 북단과 남단에는 가장 복음화되지 않은 종족이 정령숭배와 이슬람교의 영향 아래 살고 있....더보기"
+            android:text="· 인구의 반이 기독교(개신교 27%, 가톨릭 22%)를 믿는다. \n\n· 20세기 대 형교회 중심으로 일어난 부흥운동으로 많은 사람이 기독교로 개종하였 으나 기독교인의 90%는 전통신앙에 혼합되어 거듭난 사람이 많지 않다. \n\n· 섬의 북단과 남단에는 가장 복음화되지 않은 종족이 정령숭배와 이슬람교의 영향 아래 살고 있다."
             android:textSize="17sp"
             tools:layout_editor_absoluteX="20dp" />
 

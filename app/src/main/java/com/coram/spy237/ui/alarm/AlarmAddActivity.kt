@@ -168,7 +168,6 @@ class AlarmAddActivity : AppCompatActivity(), View.OnClickListener {
     private fun setBundleData() {
         bundleFlag = intent.getStringExtra(BUNDLE_KEY_FLAG)
         bundleModel = intent.getParcelableExtra(BUNDLE_KEY_ALARM_MODEL)
-        Utils.onLog(Gson().toJson(bundleModel))
     }
 
     private fun setBottomBtn(flag: String?) {

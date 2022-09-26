@@ -7,12 +7,13 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import com.coram.spy237.model.db.AlarmModel
 import com.coram.spy237.model.db.CountryModel
+import com.coram.spy237.model.db.HighlightModel
 
 class DbOpenHelper(context: Context?) :
     SQLiteOpenHelper(context, DB_NAME, null, DB_VERSION) {
 
     companion object {
-        private const val DB_VERSION = 1
+        private const val DB_VERSION = 3
         private const val DB_NAME = "237.db"
         lateinit var mdb: SQLiteDatabase
     }
@@ -21,12 +22,14 @@ class DbOpenHelper(context: Context?) :
         db.execSQL(DbTable.Member.QUERY_CREATE)
         db.execSQL(DbTable.Country.QUERY_CREATE)
         db.execSQL(DbTable.Alarm.QUERY_CREATE)
+        db.execSQL(DbTable.Highlight.QUERY_CREATE)
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
         db.execSQL(DbTable.Member.QUERY_DROP)
         db.execSQL(DbTable.Country.QUERY_DROP)
         db.execSQL(DbTable.Alarm.QUERY_DROP)
+        db.execSQL(DbTable.Highlight.QUERY_DROP)
     }
 
     /**
@@ -80,6 +83,12 @@ class DbOpenHelper(context: Context?) :
     fun selectAllCountry(): Cursor {
         mdb = this.readableDatabase
         val sql = "select * from ${DbTable.Country.TABLENAME}"
+        return mdb.rawQuery(sql, null)
+    }
+
+    fun selectAllContinent(continent: String): Cursor {
+        mdb = this.readableDatabase
+        val sql = "select * from ${DbTable.Country.TABLENAME} where ${DbTable.Country.COLUMN_CONTINENT} like '%$continent%'"
         return mdb.rawQuery(sql, null)
     }
 
@@ -156,5 +165,26 @@ class DbOpenHelper(context: Context?) :
         return result != 0 // success
     }
     // END Alarm
+
+    // START Highlight
+    fun selectAllHighlight(): Cursor {
+        mdb = this.readableDatabase
+        val sql = "select * from ${DbTable.Highlight.TABLENAME} order by ${DbTable.Highlight.COLUMN_ID} asc"
+        return mdb.rawQuery(sql, null)
+    }
+
+    fun insertHighlight(model: HighlightModel): Boolean {
+        mdb = this.writableDatabase
+        val values = ContentValues()
+        values.put(DbTable.Highlight.COLUMN_POSITION, model.position)
+        values.put(DbTable.Highlight.COLUMN_TEXT_ID, model.textId)
+        values.put(DbTable.Highlight.COLUMN_START, model.start)
+        values.put(DbTable.Highlight.COLUMN_END, model.end)
+        values.put(DbTable.Highlight.COLUMN_COLOR, model.color)
+        val result = mdb.insert(DbTable.Highlight.TABLENAME, null, values)
+
+        return result != -1L // success
+    }
+    //END Highlight
 
 }

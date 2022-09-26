@@ -3,12 +3,11 @@ package com.coram.spy237.model
 data class SearchModel(val imageUri: String, val searchText: String) {
     companion object {
         val countryList = arrayListOf(
-            SearchModel("", "1"),
-            SearchModel("", "2"),
-            SearchModel("", "3"),
-            SearchModel("", "4"),
-            SearchModel("", "5"),
-            SearchModel("", "6")
+            SearchModel("", "마다가스카르"),
+            SearchModel("", "인도네시아"),
+            SearchModel("", "방글라데시"),
+            SearchModel("", "파키스탄"),
+            SearchModel("", "제트남"),
         )
         val nameList = arrayListOf(
             SearchModel("", "김동길"),

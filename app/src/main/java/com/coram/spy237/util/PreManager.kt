@@ -13,6 +13,7 @@ object PrefManager {
     private const val DEFAULT_VALUE_FLOAT = -1f
     const val PREF_PRAY_NOTE_LANG = "PREF_PRAY_NOTE_LANG"
     const val PREF_PRAY_NOTE_HIGHLIGHT = "PREF_PRAY_NOTE_HIGHLIGHT"
+    const val PREF_PRAY_NOTE_CURRENT_PAGE = "PREF_PRAY_NOTE_CURRENT_PAGE"
 
     private fun getPreferences(context: Context): SharedPreferences {
         return context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE)

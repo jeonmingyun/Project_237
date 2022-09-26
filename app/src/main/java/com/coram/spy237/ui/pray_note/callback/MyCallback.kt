@@ -8,12 +8,20 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.TextView
 import com.coram.spy237.R
+import com.coram.spy237.db.DbOpenHelper
+import com.coram.spy237.model.db.HighlightModel
+import com.coram.spy237.util.PrefManager
 
 class MyCallback(context: Context, tv: TextView) : ActionMode.Callback {
+    // DB
+    private lateinit var dbHelper: DbOpenHelper
+
     var mTextView: TextView = tv
     var mContext: Context = context
 
     override fun onCreateActionMode(mode: ActionMode?, menu: Menu?): Boolean {;
+        //db
+        dbHelper = DbOpenHelper(mContext)
         // 선택 옵션 새로 만듬
         mode!!.menuInflater.inflate(R.menu.highlight_menu, menu);
 
@@ -35,12 +43,16 @@ class MyCallback(context: Context, tv: TextView) : ActionMode.Callback {
         val start = mTextView.selectionStart
         val end = mTextView.selectionEnd
         val wordToSpan: Spannable = mTextView.text as Spannable
+        val highlightColor = PrefManager.getInt(mContext, PrefManager.PREF_PRAY_NOTE_HIGHLIGHT)
+        val currentPage = PrefManager.getInt(mContext, PrefManager.PREF_PRAY_NOTE_CURRENT_PAGE)
 
         // highlight 메뉴 선택시 배경색 변경
         when (item!!.itemId) {
             R.id.highlight -> {
+                val model = HighlightModel( -1, currentPage, mTextView.id, start, end, highlightColor)
+                dbHelper.insertHighlight(model)
                 wordToSpan.setSpan(
-                    BackgroundColorSpan(mContext.resources.getColor(R.color.purple_500)),
+                    BackgroundColorSpan(highlightColor),
                     start,
                     end,
                     Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
@@ -55,4 +67,5 @@ class MyCallback(context: Context, tv: TextView) : ActionMode.Callback {
     override fun onDestroyActionMode(mode: ActionMode?) {
 
     }
+
 }

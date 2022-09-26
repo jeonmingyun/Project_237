@@ -1,145 +1,178 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white"
+    android:layout_height="wrap_content"
     tools:context=".ui.pray_note.PraySetActivity">
 
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?android:attr/actionBarSize"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:id="@+id/languageSpinIcon"
-            android:layout_width="30dp"
-            android:layout_height="match_parent"
-            android:layout_marginStart="@dimen/margin_activity_default"
-            android:src="@drawable/language_icon"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <Spinner
-            android:id="@+id/languageSpin"
-            android:layout_width="150dp"
-            android:layout_height="match_parent"
-            android:layout_marginStart="7dp"
-            android:gravity="center"
-            android:text="기도수첩"
-            android:textSize="@dimen/toolbarTitle"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@id/languageSpinIcon" />
-
-        <ImageButton
-            android:id="@+id/toolbarCloseBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:background="@android:color/transparent"
-            android:paddingEnd="@dimen/margin_activity_default"
-            android:src="@drawable/ic_baseline_close_24"
-            app:layout_constraintEnd_toEndOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:padding="@dimen/margin_activity_default"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar">
+        android:layout_height="wrap_content"
+        android:background="@color/white">
 
-        <ImageView
-            android:id="@+id/highlightIcon"
-            android:layout_width="15dp"
-            android:layout_height="15dp"
-            android:background="@android:color/transparent"
-            android:src="@drawable/pray_set_icon01"
-            app:layout_constraintBottom_toBottomOf="@id/highlightLabel"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/highlightLabel" />
-
-        <TextView
-            android:id="@+id/highlightLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="7dp"
-            android:layout_marginTop="30dp"
-            android:text="High Lighting"
-            android:textSize="15sp"
-            app:layout_constraintStart_toEndOf="@id/highlightIcon"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <RadioGroup
-            android:id="@+id/highlightRadioGroup"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:orientation="horizontal"
-            app:layout_constraintTop_toBottomOf="@id/highlightLabel">
+            android:layout_height="?android:attr/actionBarSize"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <androidx.appcompat.widget.AppCompatRadioButton
-                android:id="@+id/radioBtnYellow"
-                android:layout_width="@dimen/pray_set_radio_btn"
-                android:layout_height="@dimen/pray_set_radio_btn"
-                android:layout_margin="7dp"
-                android:background="@drawable/radio_btn_yellow"
-                android:button="@null" />
+            <ImageView
+                android:id="@+id/languageSpinIcon"
+                android:layout_width="30dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/margin_activity_default"
+                android:src="@drawable/language_icon"
+                app:layout_constraintStart_toStartOf="parent" />
 
-            <RadioButton
-                android:id="@+id/radioBtnGreen"
-                android:layout_width="@dimen/pray_set_radio_btn"
-                android:layout_height="@dimen/pray_set_radio_btn"
-                android:layout_margin="7dp"
-                android:background="@drawable/radio_btn_green"
-                android:button="@null" />
+            <Spinner
+                android:id="@+id/languageSpin"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="7dp"
+                android:gravity="center"
+                android:text="기도수첩"
+                android:textSize="@dimen/toolbarTitle"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/languageSpinIcon" />
 
-            <RadioButton
-                android:id="@+id/radioBtnRed"
-                android:layout_width="@dimen/pray_set_radio_btn"
-                android:layout_height="@dimen/pray_set_radio_btn"
-                android:layout_margin="7dp"
-                android:background="@drawable/radio_btn_red"
-                android:button="@null" />
+            <ImageButton
+                android:id="@+id/toolbarCloseBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:paddingEnd="@dimen/margin_activity_default"
+                android:src="@drawable/ic_baseline_close_24"
+                app:layout_constraintEnd_toEndOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <RadioButton
-                android:id="@+id/radioBtnGray"
-                android:layout_width="@dimen/pray_set_radio_btn"
-                android:layout_height="@dimen/pray_set_radio_btn"
-                android:layout_margin="7dp"
-                android:background="@drawable/radio_btn_gray"
-                android:button="@null" />
-        </RadioGroup>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:padding="@dimen/margin_activity_default"
+            app:layout_constraintTop_toBottomOf="@id/toolbar">
 
-        <ImageView
-            android:id="@+id/calendarIcon"
-            android:layout_width="15dp"
-            android:layout_height="15dp"
-            android:background="@android:color/transparent"
-            android:src="@drawable/pray_set_icon02"
-            app:layout_constraintBottom_toBottomOf="@id/calendarLabel"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/calendarLabel" />
+            <ImageView
+                android:id="@+id/highlightIcon"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/pray_set_icon01"
+                app:layout_constraintBottom_toBottomOf="@id/highlightLabel"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/highlightLabel" />
 
-        <TextView
-            android:id="@+id/calendarLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="7dp"
-            android:layout_marginTop="30dp"
-            android:text="Calendar"
-            android:textSize="15sp"
-            app:layout_constraintStart_toEndOf="@id/calendarIcon"
-            app:layout_constraintTop_toBottomOf="@id/highlightRadioGroup" />
+            <TextView
+                android:id="@+id/highlightLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="7dp"
+                android:layout_marginTop="30dp"
+                android:text="Highlighting"
+                android:textSize="17sp"
+                app:layout_constraintStart_toEndOf="@id/highlightIcon"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <DatePicker
-            android:id="@+id/calender"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/calendarLabel" />
+            <RadioGroup
+                android:id="@+id/highlightRadioGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/highlightLabel">
+
+                <RadioButton
+                    android:id="@+id/radioBtnYellow"
+                    android:layout_width="@dimen/pray_set_radio_btn"
+                    android:layout_height="@dimen/pray_set_radio_btn"
+                    android:layout_margin="7dp"
+                    android:background="@drawable/radio_btn_yellow"
+                    android:button="@null" />
+
+                <RadioButton
+                    android:id="@+id/radioBtnGreen"
+                    android:layout_width="@dimen/pray_set_radio_btn"
+                    android:layout_height="@dimen/pray_set_radio_btn"
+                    android:layout_margin="7dp"
+                    android:background="@drawable/radio_btn_green"
+                    android:button="@null" />
+
+                <RadioButton
+                    android:id="@+id/radioBtnRed"
+                    android:layout_width="@dimen/pray_set_radio_btn"
+                    android:layout_height="@dimen/pray_set_radio_btn"
+                    android:layout_margin="7dp"
+                    android:background="@drawable/radio_btn_red"
+                    android:button="@null" />
+
+                <RadioButton
+                    android:id="@+id/radioBtnGray"
+                    android:layout_width="@dimen/pray_set_radio_btn"
+                    android:layout_height="@dimen/pray_set_radio_btn"
+                    android:layout_margin="7dp"
+                    android:background="@drawable/radio_btn_gray"
+                    android:button="@null" />
+            </RadioGroup>
+
+            <ImageView
+                android:id="@+id/calendarIcon"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/pray_set_icon02"
+                app:layout_constraintBottom_toBottomOf="@id/calendarLabel"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/calendarLabel" />
+
+            <TextView
+                android:id="@+id/calendarLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="7dp"
+                android:layout_marginTop="30dp"
+                android:text="Calendar"
+                android:textSize="17sp"
+                app:layout_constraintStart_toEndOf="@id/calendarIcon"
+                app:layout_constraintTop_toBottomOf="@id/highlightRadioGroup" />
+
+            <DatePicker
+                android:id="@+id/calender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/calendarLabel" />
+
+            <ImageButton
+                android:id="@+id/exportIcon"
+                android:layout_width="24sp"
+                android:layout_height="24sp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/export_icon"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/calender" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="7dp"
+                android:text="Export"
+                android:textSize="17sp"
+                app:layout_constraintBottom_toBottomOf="@id/exportIcon"
+                app:layout_constraintStart_toEndOf="@id/exportIcon"
+                app:layout_constraintTop_toTopOf="@id/exportIcon" />
+
+            <TextView
+                android:id="@+id/exportText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15sp"
+                android:bufferType="spannable"
+                android:text="당월 이전에 구독한 기도수첩은 마이페이지에서 다운로드 가능합니다."
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="@id/exportIcon"
+                app:layout_constraintTop_toBottomOf="@id/exportIcon" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

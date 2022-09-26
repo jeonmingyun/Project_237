@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white">
@@ -18,7 +19,6 @@
             android:gravity="center"
             android:paddingStart="@dimen/margin_activity_default"
             android:text="기도수첩"
-            android:textIsSelectable="true"
             android:textSize="@dimen/toolbarTitle"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent" />
@@ -39,13 +39,97 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar">
 
-        <ImageView
-            android:id="@+id/prayNoteImg"
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="#efefef"
             app:layout_constraintBottom_toTopOf="@id/pagingBtnContainer"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <RelativeLayout
+                android:id="@+id/prayNoteContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/margin_activity_default">
+
+                <TextView
+                    android:id="@+id/prayNoteDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/app_purple"
+                    android:textIsSelectable="true"
+                    android:textSize="35sp"
+                    android:textStyle="bold"
+                    tools:text="2022년 9월" />
+
+                <TextView
+                    android:id="@+id/prayNoteTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/prayNoteDate"
+                    android:layout_marginTop="15dp"
+                    android:textIsSelectable="true"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
+                    tools:text="최고의 상급" />
+
+                <TextView
+                    android:id="@+id/bible"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/prayNoteTitle"
+                    android:lineSpacingExtra="5dp"
+                    android:textIsSelectable="true"
+                    android:textSize="15sp"
+                    tools:text="마태복음 10:40~42 | 너희를 영접하는 자는 나를 영접하는 것이요 나를 영접하는 자는 나를 보내신 이를 영접하는 것이니라 선지자의 이름으로 선지자를 영접하는 자는 선지자의 상을 받을 것이요 의인의 이름으로 의인을 영접하는 자는 의인의 상을 받을 것이요 또 누구든지 제자의 이름으로 이 작은 자 중 하나에게 냉수 한 그릇이라도 주는 자는 내가 진실로 너희에게 이르노니 그 사람이 결단코 상을 잃지 아니하리라 하시니라" />
+
+                <View
+                    android:id="@+id/divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@id/bible"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@color/app_purple" />
+
+                <TextView
+                    android:id="@+id/prayNoteTitle01"
+                    style="@style/prayNoteTitle"
+                    android:layout_below="@id/divider"
+                    android:text="1. 역사적 이유 - 복음이 증거 될 때 해방되는 역사" />
+
+                <TextView
+                    android:id="@+id/prayNoteComment01"
+                    style="@style/prayNoteComment"
+                    android:layout_below="@id/prayNoteTitle01"
+                    android:text="모세를 통해 애굽에 피 제사의 언약이 전달되자 출애굽의 기적이 일어났습니다. 바울을" />
+
+                <TextView
+                    android:id="@+id/prayNoteTitle02"
+                    style="@style/prayNoteTitle"
+                    android:layout_below="@id/prayNoteComment01"
+                    android:layout_marginTop="20dp"
+                    android:text="1. 역사적 이유 - 복음이 증거 될 때 해방되는 역사" />
+
+                <TextView
+                    android:id="@+id/prayNoteComment02"
+                    style="@style/prayNoteComment"
+                    android:layout_below="@id/prayNoteTitle02"
+                    android:text="모세를 통해 애굽에 피 제사의 언약이 전달되자 출애굽의 기적이 일어났습니다. 바울을" />
+
+                <TextView
+                    android:id="@+id/prayNoteTitle03"
+                    style="@style/prayNoteTitle"
+                    android:layout_below="@id/prayNoteComment02"
+                    android:layout_marginTop="20dp"
+                    android:text="1. 역사적 이유 - 복음이 증거 될 때 해방되는 역사" />
+
+                <TextView
+                    android:id="@+id/prayNoteComment03"
+                    style="@style/prayNoteComment"
+                    android:layout_below="@id/prayNoteTitle03"
+                    android:text="모세를 통해 애굽에 피 제사의 언약이 전달되자 출애굽의 기적이 일어났습니다. 바울을" />
+            </RelativeLayout>
+        </ScrollView>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/pagingBtnContainer"

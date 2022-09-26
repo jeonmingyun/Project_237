@@ -10,4 +10,6 @@
     <dimen name="pray_set_radio_btn">40dp</dimen>
     <dimen name="travel_icon_width">70sp</dimen>
     <dimen name="travel_icon_top_margin">60dp</dimen>
+    <dimen name="connect_vertical_divider">15dp</dimen>
+    <dimen name="connect_hori_divider">10dp</dimen>
 </resources>

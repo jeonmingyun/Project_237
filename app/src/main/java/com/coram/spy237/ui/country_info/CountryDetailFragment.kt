@@ -1,5 +1,6 @@
 package com.coram.spy237.ui.country_info
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.view.LayoutInflater
@@ -57,6 +58,10 @@ class CountryDetailFragment : Fragment() {
 
         binding.backBtn.setOnClickListener {
             requireActivity().supportFragmentManager.popBackStack()
+        }
+
+        binding.countryTag.setOnClickListener {
+            startActivity(Intent(context, ConnectModalActivity::class.java))
         }
     }
 

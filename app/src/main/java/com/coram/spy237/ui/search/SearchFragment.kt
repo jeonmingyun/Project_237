@@ -3,20 +3,26 @@ package com.coram.spy237.ui.search
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Button
+import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
+import androidx.viewpager2.widget.ViewPager2
 import com.coram.spy237.R
 import com.coram.spy237.databinding.FragmentSearchBinding
+import com.coram.spy237.db.DbOpenHelper
 import com.coram.spy237.model.SearchModel
+import com.coram.spy237.model.db.CountryModel
+import com.coram.spy237.ui.country_info.adapter.ViewPagerAdapter
+import com.coram.spy237.ui.country_info.tabs.*
 import com.google.android.flexbox.FlexboxLayoutManager
 import com.google.android.flexbox.JustifyContent
+import com.google.android.material.tabs.TabLayoutMediator
 import java.util.*
 
 class SearchFragment : Fragment() {
@@ -29,6 +35,8 @@ class SearchFragment : Fragment() {
     // view binding
     private var mBinding: FragmentSearchBinding? = null
     private val binding get() = mBinding!!
+    // DB
+    private lateinit var dbHelper: DbOpenHelper
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -42,10 +50,13 @@ class SearchFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initSearchSpinner(arrayListOf("선교국가", "선교사명"))
+        //db
+        dbHelper = DbOpenHelper(context)
 
+        initSearchSpinner(arrayListOf("선교국가", "선교사명"))
         initSearchTagRecycler(binding.recentSearchWordRecycler, mockDataRecentSearchItems)
         initSearchTagRecycler(binding.recommendSearchWordRecycler, mockDataRecommendSearchItems)
+        initViewPagerTab() // 검색 메인화면
 
         binding.searchEt.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
@@ -168,5 +179,53 @@ class SearchFragment : Fragment() {
             0 -> binding.searchEt.hint = "국가명을 입력해주세요"
             1 -> binding.searchEt.hint = "이름을 입력해주세요"
         }
+    }
+
+    private fun initViewPagerTab() {
+        val pagerAdapter = ViewPagerAdapter(requireActivity())
+        // Fragment Add
+        pagerAdapter.addFragment(SearchMainFragment().newInstance("Asia"))
+        pagerAdapter.addFragment(SearchMainFragment().newInstance("Africa"))
+        pagerAdapter.addFragment(SearchMainFragment().newInstance("America"))
+        pagerAdapter.addFragment(SearchMainFragment().newInstance("Europe"))
+        pagerAdapter.addFragment(SearchMainFragment().newInstance("Oceania"))
+        // Adapter
+        binding.viewPager.adapter = pagerAdapter
+        binding.viewPager.offscreenPageLimit = 5
+
+        // TabLayout attach
+        TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
+            tab.text = when (position) {
+                0 -> "Asia"
+                1 -> "Africa"
+                2 -> "America"
+                3 -> "Europe"
+                4 -> "Oceania"
+                else -> "Asia"
+            }
+        }.attach()
+
+        binding.viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                val view = (binding.viewPager[0] as RecyclerView).layoutManager?.findViewByPosition(
+                    position
+                )
+                view?.post {
+                    val wMeasureSpec =
+                        View.MeasureSpec.makeMeasureSpec(view.width, View.MeasureSpec.EXACTLY)
+                    val hMeasureSpec =
+                        View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED)
+                    view.measure(wMeasureSpec, hMeasureSpec)
+                    if (binding.viewPager.layoutParams.height != view.measuredHeight) {
+                        binding.viewPager.layoutParams =
+                            (binding.viewPager.layoutParams).also { lp ->
+                                lp.height = view.measuredHeight
+                            }
+                    }
+                }
+            }
+        })
+
     }
 }

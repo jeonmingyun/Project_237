@@ -61,4 +61,24 @@ private constructor() {
                 + ");")
         const val QUERY_DROP = "drop table if exists " + TABLENAME
     }
+
+    /*하이라이트 정보*/
+    object Highlight : BaseColumns {
+        const val TABLENAME = "highlight"
+        const val COLUMN_ID = "_id"
+        const val COLUMN_POSITION = "COLUMN_POSITION"
+        const val COLUMN_TEXT_ID = "COLUMN_TEXT_ID"
+        const val COLUMN_START = "COLUMN_START"
+        const val COLUMN_END = "COLUMN_END"
+        const val COLUMN_COLOR = "COLUMN_COLOR"
+        const val QUERY_CREATE = ("create table IF NOT EXISTS " + TABLENAME + "("
+                + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+                + COLUMN_POSITION + " INTEGER,"
+                + COLUMN_TEXT_ID + " INTEGER,"
+                + COLUMN_START + " INTEGER,"
+                + COLUMN_END + " INTEGER,"
+                + COLUMN_COLOR + " INTEGER"
+                + ");")
+        const val QUERY_DROP = "drop table if exists " + TABLENAME
+    }
 }

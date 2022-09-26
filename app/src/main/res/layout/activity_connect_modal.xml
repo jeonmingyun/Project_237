@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#77000000"
+    tools:context=".ui.my_page.PrayModalActivity">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@drawable/bg_modal_header_yellow"
+        app:layout_constraintBottom_toTopOf="@id/modalContentContainer">
+
+        <TextView
+            android:id="@+id/prayHeaderContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_activity_default"
+            android:layout_marginEnd="@dimen/margin_activity_default"
+            android:gravity="center"
+            android:text="연결하기"
+            android:textColor="@color/app_yellow"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/closeBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_activity_default"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_baseline_close_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/modalContentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/appCompatButton">
+
+        <TextView
+            android:id="@+id/labelFirstName"
+            style="@style/connectText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="First name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/etFirstName"
+            style="@style/connectEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/connect_hori_divider"
+            android:layout_marginEnd="@dimen/connect_hori_divider"
+            app:layout_constraintBottom_toBottomOf="@id/labelFirstName"
+            app:layout_constraintEnd_toStartOf="@+id/imageUploadBtn"
+            app:layout_constraintStart_toEndOf="@id/labelFirstName"
+            app:layout_constraintTop_toTopOf="@id/labelFirstName" />
+
+        <TextView
+            android:id="@+id/labelLastName"
+            style="@style/connectText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/connect_vertical_divider"
+            android:text="Last name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etFirstName" />
+
+        <EditText
+            android:id="@+id/etLastName"
+            style="@style/connectEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/connect_hori_divider"
+            android:layout_marginEnd="@dimen/connect_hori_divider"
+            app:layout_constraintBottom_toBottomOf="@id/labelLastName"
+            app:layout_constraintEnd_toStartOf="@+id/imageUploadBtn"
+            app:layout_constraintStart_toEndOf="@id/labelLastName"
+            app:layout_constraintTop_toTopOf="@id/labelLastName" />
+
+        <ImageButton
+            android:id="@+id/imageUploadBtn"
+            android:layout_width="80dp"
+            android:layout_height="85dp"
+            android:adjustViewBounds="true"
+            android:background="@android:color/transparent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/image_upload"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/labelAddress"
+            style="@style/connectText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/connect_vertical_divider"
+            android:text="Address"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageUploadBtn" />
+
+        <EditText
+            android:id="@+id/etAddress01"
+            style="@style/connectEditText"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            app:layout_constraintStart_toStartOf="@id/labelAddress"
+            app:layout_constraintTop_toBottomOf="@id/labelAddress" />
+
+        <EditText
+            android:id="@+id/etAddress02"
+            style="@style/connectEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/connect_hori_divider"
+            app:layout_constraintBottom_toBottomOf="@+id/etAddress01"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/etAddress01"
+            app:layout_constraintTop_toTopOf="@+id/etAddress01" />
+
+        <TextView
+            android:id="@+id/labelPhone"
+            style="@style/connectText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/connect_vertical_divider"
+            android:text="Phone Number"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etAddress01" />
+
+        <EditText
+            android:id="@+id/etPhone"
+            style="@style/connectEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:inputType="phone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/labelPhone"
+            app:layout_constraintTop_toBottomOf="@id/labelPhone" />
+
+        <TextView
+            android:id="@+id/labelRemarks"
+            style="@style/connectText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/connect_vertical_divider"
+            android:text="Remarks"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etPhone" />
+
+        <EditText
+            android:id="@+id/etRemarks"
+            style="@style/connectEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/labelRemarks"
+            app:layout_constraintTop_toBottomOf="@id/labelRemarks" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/appCompatButton"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/app_yellow"
+        android:backgroundTint="@color/app_yellow"
+        android:text="submit"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

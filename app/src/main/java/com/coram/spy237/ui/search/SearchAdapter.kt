@@ -12,12 +12,15 @@ import com.bumptech.glide.Glide
 import com.coram.spy237.MainActivity
 import com.coram.spy237.R
 import com.coram.spy237.model.SearchModel
+import com.coram.spy237.ui.country_info.CountryDetailFragment
+import com.coram.spy237.ui.country_info.CountryInfoFragment
 import com.coram.spy237.ui.missionary.MissionaryProfileFragment
 
 class SearchAdapter(val context: Context, var itemList: List<SearchModel>) :
     RecyclerView.Adapter<SearchAdapter.MyViewHolder>() {
 
     val testName = "김동길"
+    val testCountry = "마다가스카르"
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         return MyViewHolder(
@@ -46,6 +49,8 @@ class SearchAdapter(val context: Context, var itemList: List<SearchModel>) :
             itemView.setOnClickListener {
                 if (item.searchText == testName) {
                     openMissionaryProfile()
+                } else if (item.searchText == testCountry) {
+                    openCountryInfo()
                 } else {
                     Toast.makeText(context, "등록된 정보가 없습니다", Toast.LENGTH_SHORT).show()
                 }
@@ -64,6 +69,12 @@ class SearchAdapter(val context: Context, var itemList: List<SearchModel>) :
         fun openMissionaryProfile() {
             (context as MainActivity).replaceFragmentWithBackPress(
                 MissionaryProfileFragment()
+            )
+        }
+
+        fun openCountryInfo() {
+            (context as MainActivity).replaceFragmentWithBackPress(
+                CountryDetailFragment().newInstance(false)
             )
         }
 
