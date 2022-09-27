@@ -71,6 +71,7 @@ class MainActivity : AppCompatActivity() {
     // 샘플용 국가 정보
     fun setTestDbCountry() {
         val countryTestList = arrayOf(
+            CountryModel(0, "마다가스카르", "", "Africa", "12", "2333", R.drawable.flag_mada.toString()),
             CountryModel(0, "인도네시아", "", "Asia", "12", "2333", R.drawable.flag_indonesia.toString()),
             CountryModel(0, "방글라데시", "", "Asia", "3", "234", R.drawable.flag_bangladesh.toString()),
             CountryModel(0, "파키스탄", "", "Asia", "5", "345", R.drawable.flag_pakistan.toString()),

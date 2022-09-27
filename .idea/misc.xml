@@ -59,6 +59,7 @@
         <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/layout/fragment_economy_tab.xml" value="0.271286231884058" />
         <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/layout/fragment_evan_tab.xml" value="0.271286231884058" />
         <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/layout/fragment_intro_tab.xml" value="0.271286231884058" />
+        <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/layout/fragment_missionary_profile.xml" value="0.2689969604863222" />
         <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/layout/fragment_people_tab.xml" value="0.33" />
         <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/layout/fragment_pray_note.xml" value="0.5" />
         <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/layout/fragment_pray_tab.xml" value="0.271286231884058" />
@@ -67,8 +68,11 @@
         <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/layout/fragment_search_result.xml" value="0.2689969604863222" />
         <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/layout/fragment_trabel_tab.xml" value="0.271286231884058" />
         <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/layout/fragment_travel_tab.xml" value="0.2689969604863222" />
+        <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/layout/ic_search_result.xml" value="0.36096014492753625" />
         <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/layout/item_calendar_list.xml" value="0.3328125" />
+        <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/layout/item_country_list.xml" value="0.322463768115942" />
         <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/layout/item_header_viewpager.xml" value="0.33" />
+        <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/layout/item_missionary_list.xml" value="0.2672239108409321" />
         <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/layout/item_missionary_search_list.xml" value="0.5536458333333333" />
         <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/layout/item_pray_list_default.xml" value="0.3328125" />
         <entry key="..\:/jmg_project/android_workspace/Project_237/app/src/main/res/layout/item_pray_list_selected.xml" value="0.33" />

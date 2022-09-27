@@ -1,8 +1,10 @@
 package com.coram.spy237.ui.search
 
+import android.database.Cursor
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,14 +18,14 @@ import androidx.viewpager2.widget.ViewPager2
 import com.coram.spy237.R
 import com.coram.spy237.databinding.FragmentSearchBinding
 import com.coram.spy237.db.DbOpenHelper
+import com.coram.spy237.db.DbTable
+import com.coram.spy237.model.MissionaryModel
 import com.coram.spy237.model.SearchModel
 import com.coram.spy237.model.db.CountryModel
 import com.coram.spy237.ui.country_info.adapter.ViewPagerAdapter
-import com.coram.spy237.ui.country_info.tabs.*
 import com.google.android.flexbox.FlexboxLayoutManager
 import com.google.android.flexbox.JustifyContent
 import com.google.android.material.tabs.TabLayoutMediator
-import java.util.*
 
 class SearchFragment : Fragment() {
     // 샘플용 데이터
@@ -35,6 +37,7 @@ class SearchFragment : Fragment() {
     // view binding
     private var mBinding: FragmentSearchBinding? = null
     private val binding get() = mBinding!!
+
     // DB
     private lateinit var dbHelper: DbOpenHelper
 
@@ -70,22 +73,61 @@ class SearchFragment : Fragment() {
                 onSearch(searchText)
             }
         })
-        // todo 검색 기능 : 엔터
-//        binding.searchEt.setOnKeyListener { _, keyCode, event ->
-//            if ((event.action == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
-//                val searchText = binding.searchEt.text.toString()
-//                onSearch(searchText)
-//                true
-//            } else {
-//                false
-//            }
-//        }
+
+        binding.searchEt.setOnKeyListener { _, keyCode, event ->
+            if ((event.action == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
+                val searchText = binding.searchEt.text.toString()
+                initSearchResultView(searchText)
+                true
+            } else {
+                false
+            }
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        binding.searchMainContainer.visibility = View.VISIBLE
+        binding.searchRecycler.visibility = View.GONE
+        binding.searchResultContainer.visibility = View.GONE
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         // view binding
         mBinding = null
+    }
+
+    private fun initSearchResultView(searchText: String) {
+        binding.searchMainContainer.visibility = View.GONE
+        binding.searchRecycler.visibility = View.GONE
+        binding.searchResultContainer.visibility = View.VISIBLE
+
+        val searchType = binding.searchSpinner.selectedItem.toString()
+        var countryList = getAllCountry()
+        var missionaryList = MissionaryModel().getTestList()
+        if (searchText.isNotBlank()) {
+            if (searchType == "선교국가") {
+                countryList = countryList.filter { it.name.contains(searchText) }
+                if (countryList.isEmpty()) missionaryList = listOf()
+            } else {
+                missionaryList = missionaryList.filter { it.name.contains(searchText) }
+                if (missionaryList.isEmpty()) missionaryList = listOf()
+            }
+        }
+        binding.icResult.countryCount.text = "검색결과 ${countryList.size}건"
+        initCountryRecycler(countryList)
+        binding.icResult.missionaryCount.text = "검색결과 ${missionaryList.size}건"
+        initMissionaryRecycler(missionaryList)
+    }
+
+    private fun initCountryRecycler(itemList: List<CountryModel>) {
+        binding.icResult.countryRecycler.adapter = CountryAdapter(requireContext(), itemList)
+    }
+
+    private fun initMissionaryRecycler(itemList: List<MissionaryModel>) {
+        binding.icResult.missionaryRecycler.adapter = MissionaryAdapter(requireContext(), itemList)
     }
 
     private fun onSearch(searchText: String) {
@@ -103,11 +145,53 @@ class SearchFragment : Fragment() {
         }
     }
 
+    private fun getCountries(searchText: String): ArrayList<CountryModel> {
+        val cursor: Cursor = dbHelper.selectCountries(searchText)
+        val list = arrayListOf<CountryModel>()
+
+        while (cursor.moveToNext()) {
+            list += CountryModel(
+                cursor.getInt(cursor.getColumnIndexOrThrow(DbTable.Country.COLUMN_ID)),
+                cursor.getString(cursor.getColumnIndexOrThrow(DbTable.Country.COLUMN_NAME)),
+                "",
+                cursor.getString(cursor.getColumnIndexOrThrow(DbTable.Country.COLUMN_CONTINENT)),
+                cursor.getString(cursor.getColumnIndexOrThrow(DbTable.Country.COLUMN_PEOPLE_COUNT)),
+                cursor.getString(cursor.getColumnIndexOrThrow(DbTable.Country.COLUMN_PRAY_COUNT)),
+                cursor.getString(cursor.getColumnIndexOrThrow(DbTable.Country.COLUMN_FLAG_URL))
+            )
+        }
+        cursor.close()
+        return list
+    }
+
+    private fun getAllCountry(): List<CountryModel> {
+        val cursor = dbHelper.selectAllCountry()
+        val alarmList = arrayListOf<CountryModel>()
+
+        while (cursor.moveToNext()) {
+            alarmList += CountryModel(
+                cursor.getInt(cursor.getColumnIndexOrThrow(DbTable.Country.COLUMN_ID)),
+                cursor.getString(cursor.getColumnIndexOrThrow(DbTable.Country.COLUMN_NAME)),
+                "",
+                cursor.getString(cursor.getColumnIndexOrThrow(DbTable.Country.COLUMN_CONTINENT)),
+                cursor.getString(cursor.getColumnIndexOrThrow(DbTable.Country.COLUMN_PEOPLE_COUNT)),
+                cursor.getString(cursor.getColumnIndexOrThrow(DbTable.Country.COLUMN_PRAY_COUNT)),
+                cursor.getString(cursor.getColumnIndexOrThrow(DbTable.Country.COLUMN_FLAG_URL))
+            )
+        }
+        cursor.close()
+        return alarmList
+    }
+
     private fun initSearching(isSearching: Boolean) {
         if (isSearching) {
+            binding.searchMainContainer.visibility = View.GONE
+            binding.searchResultContainer.visibility = View.GONE
             binding.searchWordContainer.visibility = View.GONE
             binding.searchRecycler.visibility = View.VISIBLE
         } else {
+            binding.searchMainContainer.visibility = View.GONE
+            binding.searchResultContainer.visibility = View.GONE
             binding.searchWordContainer.visibility = View.GONE // 필요시 visible
             binding.searchRecycler.visibility = View.GONE
         }

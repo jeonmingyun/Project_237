@@ -59,43 +59,6 @@ class AlarmFragment : Fragment(), View.OnClickListener {
         dbHelper = DbOpenHelper(context)
 
         binding.prayAddBtn.setOnClickListener(this)
-
-//        binding.toolbarMenuBtn.setOnClickListener(this)
-//        dbHelper.insertCountry(CountryModel(
-//            0,
-//            "인도네시아",
-//            "아시아",
-//            "12",
-//            "2233",
-//            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQH_9ICYeo7xzTvf7f9o9LiKnGxkeBG89jGN3GRq7pllg&s"
-//        ))
-//
-//        dbHelper.insertCountry(CountryModel(
-//            0,
-//            "방글라데시",
-//            "아시아",
-//            "1",
-//            "56",
-//            "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Flag_of_Bangladesh.svg/383px-Flag_of_Bangladesh.svg.png"
-//        ))
-//
-//        dbHelper.insertCountry(CountryModel(
-//            0,
-//            "파키스탄",
-//            "아시아",
-//            "3",
-//            "233",
-//            "https://world.moleg.go.kr/oweb/images/countryFlag/PK_L.png"
-//        ))
-//
-//        dbHelper.insertCountry(CountryModel(
-//            0,
-//            "베트남",
-//            "아시아",
-//            "7",
-//            "202",
-//            "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Vietnam.svg/225px-Flag_of_Vietnam.svg.png"
-//        ))
     }
 
     override fun onResume() {

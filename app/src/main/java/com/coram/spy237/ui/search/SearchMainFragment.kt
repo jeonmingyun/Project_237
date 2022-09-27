@@ -4,14 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.coram.spy237.MainActivity
 import com.coram.spy237.databinding.FragmentSearchMainBinding
 import com.coram.spy237.db.DbOpenHelper
 import com.coram.spy237.db.DbTable
 import com.coram.spy237.model.db.CountryModel
+import com.coram.spy237.ui.country_info.CountryDetailFragment
 import com.coram.spy237.util.Utils
-import com.google.gson.Gson
 
 class SearchMainFragment : Fragment() {
     // view binding
@@ -53,16 +53,16 @@ class SearchMainFragment : Fragment() {
         setCountryInfo(countryList)
 
         binding.country01Container.setOnClickListener{
-            Utils.onToast(context, "해당 국가의 상세 정보가 없습니다")
+            setOnCountryDetail(binding.name01.text.toString())
         }
         binding.country02Container.setOnClickListener{
-            Utils.onToast(context, "해당 국가의 상세 정보가 없습니다")
+            setOnCountryDetail(binding.name02.text.toString())
         }
         binding.country03Container.setOnClickListener{
-            Utils.onToast(context, "해당 국가의 상세 정보가 없습니다")
+            setOnCountryDetail(binding.name03.text.toString())
         }
         binding.country04Container.setOnClickListener{
-            Utils.onToast(context, "해당 국가의 상세 정보가 없습니다")
+            setOnCountryDetail(binding.name04.text.toString())
         }
     }
 
@@ -72,8 +72,18 @@ class SearchMainFragment : Fragment() {
         mBinding = null
     }
 
+    private fun setOnCountryDetail(countryName: String) {
+        when (countryName) {
+            "마다가스카르" -> {
+                (context as MainActivity).replaceFragmentWithBackPress(CountryDetailFragment().newInstance(false))
+            }
+            else -> {
+                Utils.onToast(context, "해당 국가의 상세 정보가 없습니다")
+            }
+        }
+    }
+
     private fun setCountryInfo(countryList: ArrayList<CountryModel>) {
-        Utils.onLog(Gson().toJson(countryList))
         binding.country01Container.visibility = View.INVISIBLE
         binding.country02Container.visibility = View.INVISIBLE
         binding.country03Container.visibility = View.INVISIBLE

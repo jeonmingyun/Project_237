@@ -31,7 +31,7 @@ class CountryInfoFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         initHeaderViewpager(HeaderViewpagerModel().getTestList())
-        initRankRecycler(CountryModel().getRankList())
+        initRankRecycler(CountryModel().getTestList())
     }
 
     override fun onDestroyView() {

@@ -85,6 +85,7 @@
             tools:listitem="@layout/item_recommend_search_word_list" />
     </LinearLayout>
 
+    <!--메인-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/searchMainContainer"
         android:layout_width="match_parent"
@@ -122,8 +123,22 @@
         android:background="@color/white"
         android:visibility="gone"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintTop_toBottomOf="@id/searchWordContainer"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/searchWordContainer"
         tools:itemCount="3"
         tools:listitem="@layout/item_country_search_list" />
+
+    <!--검색 완료-->
+    <FrameLayout
+        android:id="@+id/searchResultContainer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/searchContainer">
+
+        <include
+            android:id="@+id/icResult"
+            layout="@layout/ic_search_result" />
+    </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,7 +13,7 @@ data class CountryModel(
     val prayCount: String = "",
     val flagUrl: String = ""
 ) : Parcelable {
-    fun getRankList(): ArrayList<CountryModel> {
+    fun getTestList(): ArrayList<CountryModel> {
         return arrayListOf(
             CountryModel(0, "마다가스카르", "복음주의 교회의 성장으로 필리핀 현장에 인구성장률보다 그리스도인의 수가 빠르게 늘게 하심에 감사합니다. 이들이 영적으로 강력한 복음 공동체로 전역에서 전도 제자 운동을 일으키고 오직 복음만 전하는 교회가 확산되게 하옵소서. 4만 3000개의 지역 중 2만 3000개 지역에 교회가 없습니다. 복음에 생을 건 전도자들이 무교회 지역에 교회를 개척하는  비전을 품게 하옵소서."),
             CountryModel(0, "미국", "하나님 아버지 하나님의 절대계획 속에 있는 오늘, 하나님 자녀된 신분에 집중하길 원합니다! 예수가 나의 그리스도 되시고 성령이 함께하시고 인도하시기에 염려하지 않고 하나님을 전적으로 신뢰하는 믿음으로 살아가게 하옵소서. 오늘 나에게 주신 말씀에 집중할 때 주시는 하나님의 절대계획을 깨닫고 나의 모든 여정이 살리는 여정 속에 있게 하옵소서 예수 그리스도 이름으로 기도합니다"),
