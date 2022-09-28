@@ -81,4 +81,16 @@ private constructor() {
                 + ");")
         const val QUERY_DROP = "drop table if exists " + TABLENAME
     }
+
+    /*데일리 미션*/
+    object DailyMission : BaseColumns {
+        const val TABLENAME = "DailyMission"
+        const val COLUMN_ID = "_id"
+        const val COLUMN_DATE = "COLUMN_DATE"
+        const val QUERY_CREATE = ("create table IF NOT EXISTS " + TABLENAME + "("
+                + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+                + COLUMN_DATE + " TEXT UNIQUE"
+                + ");")
+        const val QUERY_DROP = "drop table if exists " + TABLENAME
+    }
 }

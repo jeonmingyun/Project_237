@@ -55,13 +55,13 @@
             android:text="현지 현황"
             android:textSize="25sp" />
 
-        <TextView
-            android:layout_width="match_parent"
+        <ImageView
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
-            android:text="예원 파송/협력선교사 다락방 파송 선교사 세계선교대회 참석자수 현지 RU 수강생 수 선교 단체 파송 선교사 한국인 시민권/영주권자 한국인 일반체류/유학생 KOICA 중점 협력국"
-            android:textSize="17sp"
-            tools:layout_editor_absoluteX="20dp" />
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/local_history" />
 
         <TextView
             android:layout_width="match_parent"
@@ -70,12 +70,12 @@
             android:text="국내 현황"
             android:textSize="25sp" />
 
-        <TextView
-            android:layout_width="match_parent"
+        <ImageView
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
-            android:text="예원 다민족 예배 참석여부 RTS 재학생 여부 영주/이민자격 체류자 기타자격 체류자"
-            android:textSize="17sp"
-            tools:layout_editor_absoluteX="20dp" />
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/domestic_history" />
     </LinearLayout>
 </ScrollView>

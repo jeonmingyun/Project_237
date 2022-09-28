@@ -13,7 +13,7 @@ class DbOpenHelper(context: Context?) :
     SQLiteOpenHelper(context, DB_NAME, null, DB_VERSION) {
 
     companion object {
-        private const val DB_VERSION = 3
+        private const val DB_VERSION = 1
         private const val DB_NAME = "237.db"
         lateinit var mdb: SQLiteDatabase
     }
@@ -23,6 +23,7 @@ class DbOpenHelper(context: Context?) :
         db.execSQL(DbTable.Country.QUERY_CREATE)
         db.execSQL(DbTable.Alarm.QUERY_CREATE)
         db.execSQL(DbTable.Highlight.QUERY_CREATE)
+        db.execSQL(DbTable.DailyMission.QUERY_CREATE)
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
@@ -30,6 +31,7 @@ class DbOpenHelper(context: Context?) :
         db.execSQL(DbTable.Country.QUERY_DROP)
         db.execSQL(DbTable.Alarm.QUERY_DROP)
         db.execSQL(DbTable.Highlight.QUERY_DROP)
+        db.execSQL(DbTable.DailyMission.QUERY_DROP)
     }
 
     /**
@@ -186,5 +188,28 @@ class DbOpenHelper(context: Context?) :
         return result != -1L // success
     }
     //END Highlight
+
+    // START Daily Mission
+    /**
+     * @param date yyyy-MM
+     */
+    fun selectDailyMissionOfMonth(date: String): Cursor {
+        mdb = this.readableDatabase
+        val sql = "select * from ${DbTable.DailyMission.TABLENAME} where ${DbTable.DailyMission.COLUMN_DATE} like '%$date%'"
+        return mdb.rawQuery(sql, null)
+    }
+
+    /**
+     * @param date yyyy-MM-dd
+     */
+    fun insertDailyMission(date: String): Boolean {
+        mdb = this.writableDatabase
+        val values = ContentValues()
+        values.put(DbTable.DailyMission.COLUMN_DATE, date)
+        val result = mdb.insertWithOnConflict(DbTable.DailyMission.TABLENAME, null, values, SQLiteDatabase.CONFLICT_IGNORE)
+
+        return result != -1L // success
+    }
+    //END Daily Mission
 
 }

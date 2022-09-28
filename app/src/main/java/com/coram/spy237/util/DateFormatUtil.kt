@@ -12,6 +12,8 @@ object DateFormatUtil {
     const val DATE_FORMAT_2 = "aa hh:mm" //오전 10:37
     const val DATE_FORMAT_3 = "yyyy-MM-dd" // 2020-04-02
     const val DATE_FORMAT_4 = "HH:mm" // 2020-04-02
+    const val DATE_FORMAT_5 = "yyyy-MM" // 2020-04
+    const val DATE_FORMAT_6 = "dd" // 02
 
     fun getCurrentDate(formatType: String?): String {
         val dateFormat = SimpleDateFormat(formatType, Locale.getDefault())

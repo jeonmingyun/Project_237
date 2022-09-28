@@ -10,6 +10,12 @@ import com.coram.spy237.ui.alarm.AlarmFragment
 import com.coram.spy237.ui.country_info.CountryInfoFragment
 import com.coram.spy237.ui.pray_note.PrayNoteFragment
 import com.coram.spy237.ui.search.SearchFragment
+import android.content.SharedPreferences
+
+import android.app.Activity
+import com.coram.spy237.util.PrefManager
+import com.coram.spy237.util.Utils
+
 
 class MainActivity : AppCompatActivity() {
     // view binding
@@ -43,8 +49,13 @@ class MainActivity : AppCompatActivity() {
             true
         }
 
+        // 최초 실행 여부 판단하는 구문
         // TODO: 2022-09-27 테스트용 db
-//        setTestDbCountry()
+        val isFirst = PrefManager.getBoolean(this, "isFirst", true)
+        if(isFirst) {
+            PrefManager.setBoolean(this, "isFirst", false)
+            setTestDbCountry()
+        }
     }
 
     override fun onDestroy() {

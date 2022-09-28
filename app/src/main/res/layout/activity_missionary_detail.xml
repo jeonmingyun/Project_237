@@ -29,16 +29,15 @@
         <ImageView
             android:id="@+id/top_bg"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="250dp"
             android:background="@drawable/missionary_head_bg"
-            app:layout_constraintHeight_percent="0.4"
             app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:background="@drawable/missonary_head_transparent"
-            app:layout_constraintBottom_toBottomOf="@+id/top_bg"
+            app:layout_constraintBottom_toBottomOf="@id/top_bg"
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.cardview.widget.CardView
@@ -66,7 +65,7 @@
             android:layout_height="wrap_content"
             android:text="MAT 28:18-20"
             android:textColor="@color/black"
-            android:textSize="24sp"
+            android:textSize="32sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@id/subtitle"
             app:layout_constraintEnd_toEndOf="@+id/subtitle"
@@ -82,6 +81,7 @@
             android:ellipsize="end"
             android:maxLines="2"
             android:text="Then Jesus came to them and said, “All authority in heaven and on earth has been given to me. 19 Therefore go and make disciples of all nations, baptizing them in the name of the Father and of the Son and of the Holy Spirit, 20 and teaching them to obey everything I have commanded you. And surely I am with you always, to the very end of the age."
+            android:textSize="17sp"
             app:layout_constraintBottom_toBottomOf="@id/top_bg" />
 
         <TextView
@@ -92,7 +92,7 @@
             android:layout_marginTop="20dp"
             android:text="기도제목"
             android:textColor="@color/black"
-            android:textSize="18sp"
+            android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/top_bg" />
 
@@ -114,9 +114,9 @@
         <ImageView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:src="@drawable/with_pray_text_icon"
-            android:scaleType="centerCrop"
             android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/with_pray_text_icon"
             app:layout_constraintEnd_toEndOf="@id/withPrayBtn"
             app:layout_constraintStart_toStartOf="@id/withPrayBtn"
             app:layout_constraintTop_toBottomOf="@id/withPrayBtn" />
@@ -133,7 +133,7 @@
 3. 빈 곳 ECA 교단에 올해 50지교회 오픈과 2,500명의 새가족들오고 (현재 예원지교회 7곳 오픈)\n\n
 4. 예배성도 300명, 청년예배 200명의 응답받기를 기도합니다."
             android:textColor="@color/black"
-            android:textSize="13sp"
+            android:textSize="15sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/bodyTitle" />
 
@@ -148,5 +148,56 @@
             app:layout_constraintTop_toBottomOf="@id/prayContent"
             tools:itemCount="1"
             tools:listitem="@layout/item_recent_search_word_list" />
+
+        <TextView
+            android:id="@+id/workHistory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_activity_default"
+            android:layout_marginTop="20dp"
+            android:text="주요사역"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tag" />
+
+        <ImageView
+            android:id="@+id/workHistoryImg"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="50dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/work_history"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/workHistory"
+            app:layout_constraintTop_toBottomOf="@id/workHistory" />
+
+        <TextView
+            android:id="@+id/prayHistory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_activity_default"
+            android:layout_marginTop="20dp"
+            android:text="Pray History"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/workHistoryImg" />
+
+        <ImageView
+            android:id="@+id/prayHistoryImg"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="50dp"
+            android:adjustViewBounds="true"
+            android:paddingBottom="30dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/pray_history"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/prayHistory"
+            app:layout_constraintTop_toBottomOf="@id/prayHistory" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

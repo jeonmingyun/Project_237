@@ -21,6 +21,7 @@ import com.coram.spy237.ui.alarm.adapter.AlarmAdapter
 import com.coram.spy237.ui.alarm.adapter.CalendarHeaderAdapter
 import com.coram.spy237.util.DateFormatUtil
 import java.util.*
+import kotlin.collections.ArrayList
 
 class AlarmFragment : Fragment(), View.OnClickListener {
     // view binding
@@ -31,9 +32,7 @@ class AlarmFragment : Fragment(), View.OnClickListener {
     private lateinit var dbHelper: DbOpenHelper
 
     // 캘린더 가데이터
-    private var checkedCalendar = arrayListOf<Int>(
-        1, 3, 4, 8, 11, 12, 15, 16, 17, 20, 21, 23, 25, 27, 28
-    )
+    private var checkedCalendar = arrayListOf<Int>()
 
     private var calendar: Calendar? = null
     private var year = 0
@@ -65,12 +64,8 @@ class AlarmFragment : Fragment(), View.OnClickListener {
         super.onResume()
         val alarmList = getAllAlarm()
         initAlarmRecycler(alarmList)
-        setCurrentDate()
-        setCalendarDate(year, month, date)
-        setItemList(maxDateOfMonth, firstDayOfMonth)
-        initWeekCalendar(itemList!!)
-        setMissionBarEnergy(checkedCalendar.size * 100 / maxDateOfMonth)
-        binding.rateText.text = "${checkedCalendar.size} / $maxDateOfMonth"
+        insertDailyMission(alarmList)
+        initDailyMission(selectDailyMission(DateFormatUtil.getCurrentDate(DateFormatUtil.DATE_FORMAT_5)))
 
         // TODO: 2022-09-20 알람
 //        setAlarm(alarmList)
@@ -102,6 +97,52 @@ class AlarmFragment : Fragment(), View.OnClickListener {
         }
 
     }
+
+    private fun insertDailyMission(alarmList: ArrayList<AlarmModel>) {
+        val succeedList = alarmList.filter {
+            it.isSucceed == "true"
+        }
+        if (succeedList.size == alarmList.size) {
+            dbHelper.insertDailyMission(DateFormatUtil.getCurrentDate(DateFormatUtil.DATE_FORMAT_3))
+        }
+    }
+
+    /**
+     * @param date yyyy-MM
+     * @return dd
+     */
+    private fun selectDailyMission(date: String): ArrayList<Int> {
+        val cursor: Cursor = dbHelper.selectDailyMissionOfMonth(date)
+        val list = arrayListOf<Int>()
+        var dateOfMonth = ""
+
+        while (cursor.moveToNext()) {
+            dateOfMonth =
+                cursor.getString(cursor.getColumnIndexOrThrow(DbTable.DailyMission.COLUMN_DATE))
+            list += DateFormatUtil.formatChangeDateString(
+                dateOfMonth,
+                DateFormatUtil.DATE_FORMAT_3,
+                DateFormatUtil.DATE_FORMAT_6
+            ).toInt()
+        }
+        cursor.close()
+        return list
+    }
+
+    /**
+     * @param dateList yyyy-MM-dd list
+     */
+    private fun initDailyMission(dateList: ArrayList<Int>) {
+        checkedCalendar = dateList
+        setCurrentDate()
+        setCalendarDate(year, month, date)
+        setItemList(maxDateOfMonth, firstDayOfMonth)
+        initWeekCalendar(itemList!!)
+        setMissionBarEnergy(checkedCalendar.size * 100 / maxDateOfMonth)
+        binding.rateText.text = "${checkedCalendar.size} / $maxDateOfMonth"
+        this.itemList
+    }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

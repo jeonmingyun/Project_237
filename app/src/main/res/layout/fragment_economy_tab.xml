@@ -115,12 +115,61 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp">
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/mada_gdp_grade" />
+    </FrameLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:paddingBottom="20dp"
+        android:text="수출"
+        android:textSize="25sp"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:scaleType="centerCrop"
-        android:src="@drawable/mada_gdp_grade"/>
-    </FrameLayout>
+        android:src="@drawable/graph_export" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="주요 수출품 : 바닐라, 니켈, 금, 의류, 보석\n주요 수출 대상국 : 미국, 프랑스, UAE 등"
+        android:textSize="17sp"
+        tools:layout_editor_absoluteX="20dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:paddingBottom="20dp"
+        android:text="수입"
+        android:textSize="25sp"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/graph_income" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="주요 수입품 : 정세석유, 쌀, 자동차, 의약품\n주요 수입 대상국 : 중국, 프랑스, UAE 등"
+        android:textSize="17sp"
+        tools:layout_editor_absoluteX="20dp" />
 </LinearLayout>

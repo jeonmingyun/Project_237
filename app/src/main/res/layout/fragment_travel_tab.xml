@@ -62,4 +62,21 @@
         android:gravity="center"
         android:text="유로, 미국달러, 영국 파운드로 환전 가능"
         android:textSize="18sp" />
+
+    <ImageView
+        android:layout_width="@dimen/travel_icon_width"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/travel_icon_top_margin"
+        android:adjustViewBounds="true"
+        android:src="@drawable/icon_embassy" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="현지 공관 대사관"
+        android:textSize="18sp" />
 </LinearLayout>
