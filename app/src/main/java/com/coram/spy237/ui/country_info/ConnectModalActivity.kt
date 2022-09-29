@@ -22,11 +22,11 @@ class ConnectModalActivity : AppCompatActivity() {
             finish()
         }
         binding.appCompatButton.setOnClickListener {
-            if(isInputChecked()) {
+            if (isInputChecked()) {
                 Utils.onToast(this, "전도 대상자 정보가 전달되었습니다")
                 finish()
             } else {
-                Utils.onToast(this, "대상자 이름을 입력해주세요")
+                Utils.onToast(this, "대상자 정보를 입력해주세요")
             }
         }
         binding.imageUploadBtn.setOnClickListener {
@@ -57,7 +57,7 @@ class ConnectModalActivity : AppCompatActivity() {
 
         when (requestCode) {
             100 -> {
-                data?:return
+                data ?: return
                 val uri = data.data as Uri
                 binding.imageUploadBtn.setImageURI(uri)
             }
@@ -68,8 +68,12 @@ class ConnectModalActivity : AppCompatActivity() {
     }
 
     private fun isInputChecked(): Boolean {
-        if(binding.etFirstName.text.isBlank() ||
-            binding.etLastName.text.isBlank()) {
+        if (binding.etFirstName.text.isBlank() ||
+            binding.etLastName.text.isBlank() ||
+            binding.etAddress01.text.isBlank() ||
+            binding.etAddress02.text.isBlank() ||
+            binding.etRemarks.text.isBlank()
+        ) {
             return false
         }
         return true

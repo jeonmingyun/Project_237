@@ -20,7 +20,6 @@ import com.coram.spy237.ui.pray_note.callback.MyCallback
 import com.coram.spy237.util.DateFormatUtil
 import com.coram.spy237.util.PrefManager
 import com.coram.spy237.util.Utils
-import com.google.gson.Gson
 import java.util.*
 
 
@@ -28,14 +27,15 @@ class PrayNoteFragment : Fragment(), View.OnClickListener {
     // view binding
     private var mBinding: FragmentPrayNoteBinding? = null
     private val binding get() = mBinding!!
+
     // DB
     private lateinit var dbHelper: DbOpenHelper
 
     // sample
     private val prayNoteList = arrayListOf<String>(
-        "2022-9-20",
-        "2022-9-21",
-        "2022-9-22",
+        "2022-9-29",
+        "2022-9-30",
+        "2022-10-1",
     )
     private val prayNoteMap = hashMapOf<String, Int>(
         prayNoteList[0] to R.drawable.pray_note_1,
@@ -88,9 +88,7 @@ class PrayNoteFragment : Fragment(), View.OnClickListener {
         "하나님은 메이슨 전쟁을 하는 사람에게 아무것도 없어도 승리하게 하십니다. 즉, 하나님은 메이슨 전쟁의 언약을 붙잡은 사람을 통해 모든 일을 진행해 나가십니다. 이 언약을 가슴에 품었던 다윗 한 사람 때문에 블레셋을 꺾으셨고, 후대를 위해 성전을 짓도록 최고의 지혜와 지식을 허락하셨습니다. 오늘 우리가 이 언약을 가슴에 품고 기도한다면 하나님은 동일하게 역사 하실 것입니다."
     )
 
-    private var highlightList: ArrayList<HighlightModel> = arrayListOf()
-
-        override fun onCreateView(
+    override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
@@ -107,9 +105,6 @@ class PrayNoteFragment : Fragment(), View.OnClickListener {
         setOnPagingColor(0)
         setOnHighlight()
 
-        highlightList = getAllHighlight()
-        initHighlight(highlightList)
-
         binding.toolbarMenuBtn.setOnClickListener(this)
         binding.prevBtn.setOnClickListener(this)
         binding.nextBtn.setOnClickListener(this)
@@ -123,7 +118,6 @@ class PrayNoteFragment : Fragment(), View.OnClickListener {
 
     override fun onClick(v: View?) {
         var currentPage = getCurrentPage()
-        highlightList = getAllHighlight()
         when (v) {
             binding.toolbarMenuBtn -> {
                 startActivityForResult(Intent(context, PraySetActivity::class.java), 100)
@@ -137,23 +131,20 @@ class PrayNoteFragment : Fragment(), View.OnClickListener {
                 currentPage += 1
             }
         }
-        setCurrentPage(currentPage)
         setOnPagingColor(currentPage)
-        initHighlight(highlightList)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if(requestCode == 100) {
-            if(resultCode == Activity.RESULT_OK) {
+        if (requestCode == 100) {
+            if (resultCode == Activity.RESULT_OK) {
                 val lang = data!!.extras!!.getString("lang").toString()
                 val date = data!!.extras!!.getString("date").toString()
 
-                if(prayNoteMap[date] != null) {
-                    setCurrentPage(prayNoteList.indexOf(date))
+                if (prayNoteMap[date] != null) {
                     setOnPagingColor(prayNoteList.indexOf(date))
                 } else {
-                    Utils.onToast(context, "해달 날짜 기도수첩이 없습니다.")
+                    Utils.onToast(context, "해당 날짜 기도수첩이 없습니다.")
                 }
             }
         }
@@ -162,7 +153,7 @@ class PrayNoteFragment : Fragment(), View.OnClickListener {
     private fun getCurrentPage(): Int {
         val position = PrefManager.getInt(requireContext(), PrefManager.PREF_PRAY_NOTE_CURRENT_PAGE)
 
-        return if(position == -1) 0 else position
+        return if (position == -1) 0 else position
     }
 
     private fun setCurrentPage(currentPage: Int) {
@@ -173,7 +164,7 @@ class PrayNoteFragment : Fragment(), View.OnClickListener {
         val list = modelList.filter {
             it.position == getCurrentPage()
         }
-        for(model in list) {
+        for (model in list) {
             val mTextView = view?.findViewById<TextView>(model.textId)
             val wordToSpan: Spannable = mTextView!!.text as Spannable
             wordToSpan.setSpan(
@@ -205,20 +196,29 @@ class PrayNoteFragment : Fragment(), View.OnClickListener {
     }
 
     private fun setOnHighlight() {
-        binding.prayNoteDate.customSelectionActionModeCallback = MyCallback(requireContext(), binding.prayNoteDate)
-        binding.prayNoteTitle.customSelectionActionModeCallback = MyCallback(requireContext(), binding.prayNoteTitle)
-        binding.bible.customSelectionActionModeCallback = MyCallback(requireContext(), binding.bible)
-        binding.prayNoteTitle01.customSelectionActionModeCallback = MyCallback(requireContext(), binding.prayNoteTitle01)
-        binding.prayNoteTitle02.customSelectionActionModeCallback = MyCallback(requireContext(), binding.prayNoteTitle02)
-        binding.prayNoteTitle03.customSelectionActionModeCallback = MyCallback(requireContext(), binding.prayNoteTitle03)
-        binding.prayNoteComment01.customSelectionActionModeCallback = MyCallback(requireContext(), binding.prayNoteComment01)
-        binding.prayNoteComment02.customSelectionActionModeCallback = MyCallback(requireContext(), binding.prayNoteComment02)
-        binding.prayNoteComment03.customSelectionActionModeCallback = MyCallback(requireContext(), binding.prayNoteComment03)
+        binding.prayNoteDate.customSelectionActionModeCallback =
+            MyCallback(requireContext(), binding.prayNoteDate)
+        binding.prayNoteTitle.customSelectionActionModeCallback =
+            MyCallback(requireContext(), binding.prayNoteTitle)
+        binding.bible.customSelectionActionModeCallback =
+            MyCallback(requireContext(), binding.bible)
+        binding.prayNoteTitle01.customSelectionActionModeCallback =
+            MyCallback(requireContext(), binding.prayNoteTitle01)
+        binding.prayNoteTitle02.customSelectionActionModeCallback =
+            MyCallback(requireContext(), binding.prayNoteTitle02)
+        binding.prayNoteTitle03.customSelectionActionModeCallback =
+            MyCallback(requireContext(), binding.prayNoteTitle03)
+        binding.prayNoteComment01.customSelectionActionModeCallback =
+            MyCallback(requireContext(), binding.prayNoteComment01)
+        binding.prayNoteComment02.customSelectionActionModeCallback =
+            MyCallback(requireContext(), binding.prayNoteComment02)
+        binding.prayNoteComment03.customSelectionActionModeCallback =
+            MyCallback(requireContext(), binding.prayNoteComment03)
     }
 
     private fun setOnPagingColor(position: Int) {
         setCurrentPage(position)
-        when(position) {
+        when (position) {
             0 -> {
                 binding.prayNoteDate.text = prayDateList[0]
                 binding.prayNoteTitle.text = prayTitleList[0]
@@ -263,5 +263,6 @@ class PrayNoteFragment : Fragment(), View.OnClickListener {
                 binding.pagingIndicator3.setBackgroundDrawable(resources.getDrawable(R.drawable.btn_page_on))
             }
         }
+        initHighlight(getAllHighlight())
     }
 }

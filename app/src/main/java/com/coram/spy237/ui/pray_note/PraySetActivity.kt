@@ -4,7 +4,6 @@ import android.graphics.Typeface
 import android.os.Bundle
 import android.text.Spannable
 import android.text.Spanned
-import android.text.style.BackgroundColorSpan
 import android.text.style.StyleSpan
 import android.view.View
 import android.widget.ArrayAdapter
@@ -30,6 +29,9 @@ class PraySetActivity : AppCompatActivity(), View.OnClickListener {
         exportTextSpannable()
 
         binding.toolbarCloseBtn.setOnClickListener(this)
+        binding.calender.setOnDateChangedListener { datePicker, year, monthOfYear, dayOfMonth ->
+            onFinish()
+        }
     }
 
     override fun onDestroy() {
@@ -39,9 +41,9 @@ class PraySetActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun initHighlightRadioGroup() {
-        val color:Int = PrefManager.getInt(this, PrefManager.PREF_PRAY_NOTE_HIGHLIGHT)
+        val color: Int = PrefManager.getInt(this, PrefManager.PREF_PRAY_NOTE_HIGHLIGHT)
 
-        when(color) {
+        when (color) {
             R.color.app_green -> {
                 binding.radioBtnGreen.isChecked
             }
@@ -51,7 +53,7 @@ class PraySetActivity : AppCompatActivity(), View.OnClickListener {
             R.color.app_gray_dark -> {
                 binding.radioBtnGray.isChecked
             }
-            else ->{
+            else -> {
                 binding.radioBtnYellow.isChecked
             }
         }
@@ -105,19 +107,19 @@ class PraySetActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun saveHighlightPref() {
         val checkedId = binding.highlightRadioGroup.checkedRadioButtonId
-        var value: Int = resources.getColor(R.color.app_yellow)
-        when(checkedId) {
+
+        val value: Int = when (checkedId) {
             binding.radioBtnGreen.id -> {
-                    resources.getColor(R.color.app_green)
+                resources.getColor(R.color.app_green)
             }
             binding.radioBtnRed.id -> {
-                value = resources.getColor(R.color.app_pink)
+                resources.getColor(R.color.app_pink)
             }
             binding.radioBtnGray.id -> {
-                value = resources.getColor(R.color.app_gray_dark)
+                resources.getColor(R.color.app_gray_dark)
             }
-            else ->{
-                value = resources.getColor(R.color.app_yellow)
+            else -> {
+                resources.getColor(R.color.app_yellow)
             }
         }
         PrefManager.setInt(this, PrefManager.PREF_PRAY_NOTE_HIGHLIGHT, value)

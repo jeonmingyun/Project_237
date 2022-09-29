@@ -87,10 +87,10 @@ class MainActivity : AppCompatActivity() {
             CountryModel(0, "방글라데시", "", "Asia", "3", "234", R.drawable.flag_bangladesh.toString()),
             CountryModel(0, "파키스탄", "", "Asia", "5", "345", R.drawable.flag_pakistan.toString()),
             CountryModel(0, "베트남", "", "Asia", "6", "772", R.drawable.flag_vietnam.toString()),
-            CountryModel(0, "아프리카", "", "Africa", "6", "772", R.drawable.flag_vietnam.toString()),
-            CountryModel(0, "아메리카", "", "America", "6", "772", R.drawable.flag_vietnam.toString()),
-            CountryModel(0, "유럽", "", "Europe", "6", "772", R.drawable.flag_vietnam.toString()),
-            CountryModel(0, "오세아니아", "", "Oceania", "6", "772", R.drawable.flag_vietnam.toString()),
+//            CountryModel(0, "아프리카", "", "Africa", "6", "772", R.drawable.flag_vietnam.toString()),
+//            CountryModel(0, "아메리카", "", "America", "6", "772", R.drawable.flag_vietnam.toString()),
+//            CountryModel(0, "유럽", "", "Europe", "6", "772", R.drawable.flag_vietnam.toString()),
+//            CountryModel(0, "오세아니아", "", "Oceania", "6", "772", R.drawable.flag_vietnam.toString()),
         )
         
         for(country in countryTestList) {
