@@ -10,6 +10,7 @@ import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
+import com.coram.spy237.R
 import com.coram.spy237.databinding.FragmentCountryDetailBinding
 import com.coram.spy237.ui.country_info.adapter.ViewPagerAdapter
 import com.coram.spy237.ui.country_info.tabs.*
@@ -21,13 +22,23 @@ class CountryDetailFragment : Fragment() {
     private var mBinding: FragmentCountryDetailBinding? = null
     private val binding get() = mBinding!!
 
-    fun newInstance(isPray: Boolean): CountryDetailFragment {
+    private var bundleCountryName = "마다가스카르"
+    private var isPray = false
+    val BUNDLE_KEY_COUNTRY_NAME = "BUNDLE_KEY_COUNTRY_NAME"
+
+    fun newInstance(isPray: Boolean, countryName: String): CountryDetailFragment {
         val args = Bundle()
 
         args.putBoolean("isPray", isPray)
+        args.putString(BUNDLE_KEY_COUNTRY_NAME, countryName)
         val fragment = CountryDetailFragment()
         fragment.arguments = args
         return fragment
+    }
+
+    private fun setBundleData() {
+        isPray = arguments?.getBoolean("isPray", false) ?: false
+        bundleCountryName = arguments?.getString(BUNDLE_KEY_COUNTRY_NAME).toString()
     }
 
     override fun onCreateView(
@@ -42,9 +53,10 @@ class CountryDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setBundleData()
+        initLayout()
         initViewPagerTab()
 
-        val isPray = arguments?.getBoolean("isPray", false) ?: false
         if (isPray) {
             Handler().postDelayed(
                 Runnable {
@@ -56,12 +68,50 @@ class CountryDetailFragment : Fragment() {
             )
         }
 
+        binding.countryName.text = bundleCountryName
+
         binding.backBtn.setOnClickListener {
             requireActivity().supportFragmentManager.popBackStack()
         }
 
         binding.countryTag.setOnClickListener {
             startActivity(Intent(context, ConnectModalActivity::class.java))
+        }
+    }
+
+    // TEST_DATA 국가 > 국가상세 > INTRO 탭
+    private fun initLayout() {
+        when (bundleCountryName) {
+            "마다가스카르" -> {
+                binding.headerViewPager.setImageResource(R.drawable.country_img_mada)
+                binding.continent.text = "아프리카"
+                binding.countryName.text = bundleCountryName
+                binding.countryComment.text = "희귀 동식물의 천국"
+            }
+            "우크라이나" -> {
+                binding.headerViewPager.setImageResource(R.drawable.country_img02)
+                binding.continent.text = "유럽"
+                binding.countryName.text = bundleCountryName
+                binding.countryComment.text = "동유럽의 비옥하고 우거진 땅, 우크라이나"
+            }
+            "필리핀" -> {
+                binding.headerViewPager.setImageResource(R.drawable.phil_intro_img)
+                binding.continent.text = "아시아"
+                binding.countryName.text = bundleCountryName
+                binding.countryComment.text = "자연재해, 치안 불안"
+            }
+            "미국" -> {
+                binding.headerViewPager.setImageResource(R.drawable.country_img03)
+                binding.continent.text = "아메리카"
+                binding.countryName.text = bundleCountryName
+                binding.countryComment.text = "팁은 필수!"
+            }
+            else -> {
+                binding.headerViewPager.setImageResource(R.drawable.country_img_mada)
+                binding.continent.text = "아프리카"
+                binding.countryName.text = bundleCountryName
+                binding.countryComment.text = "희귀 동식물의 천국"
+            }
         }
     }
 
@@ -82,12 +132,12 @@ class CountryDetailFragment : Fragment() {
     private fun initViewPagerTab() {
         val pagerAdapter = ViewPagerAdapter(requireActivity())
         // Fragment Add
-        pagerAdapter.addFragment(IntroTabFragment())
-        pagerAdapter.addFragment(PeopleTabFragment())
-        pagerAdapter.addFragment(EconomyTabFragment())
-        pagerAdapter.addFragment(TravelTabFragment())
-        pagerAdapter.addFragment(EvanTabFragment())
-        pagerAdapter.addFragment(PrayTabFragment())
+        pagerAdapter.addFragment(IntroTabFragment.newInstance(bundleCountryName))
+        pagerAdapter.addFragment(PeopleTabFragment.newInstance(bundleCountryName))
+        pagerAdapter.addFragment(EconomyTabFragment.newInstance(bundleCountryName))
+        pagerAdapter.addFragment(TravelTabFragment.newInstance(bundleCountryName))
+        pagerAdapter.addFragment(EvanTabFragment.newInstance(bundleCountryName))
+        pagerAdapter.addFragment(PrayTabFragment.newInstance(bundleCountryName))
         // Adapter
         binding.viewPager.adapter = pagerAdapter
         binding.viewPager.offscreenPageLimit = 5

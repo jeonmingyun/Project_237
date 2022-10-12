@@ -2,7 +2,8 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,7 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="top"
-            android:text="개발, 원조, 의료사역 위주의 선교 진행 중.\n현지 언어와 문화를 익힌 장기 사역자 필요"
+            android:text="개발, 원조, 의료사역 위주 선교 진행 중: 현지 언어와 문화를 익힌 장기 사역자 필요"
             android:textColor="@color/app_yellow"
             android:textSize="17sp" />
 
@@ -29,7 +30,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
-            android:text="· 인구의 반이 기독교(개신교 27%, 가톨릭 22%)를 믿는다. \n\n· 20세기 대 형교회 중심으로 일어난 부흥운동으로 많은 사람이 기독교로 개종하였 으나 기독교인의 90%는 전통신앙에 혼합되어 거듭난 사람이 많지 않다. \n\n· 섬의 북단과 남단에는 가장 복음화되지 않은 종족이 정령숭배와 이슬람교의 영향 아래 살고 있다."
+            android:text="• 인구의 반이 기독교(개신교 27%, 가톨릭 22%)를 믿는다. 20세기 대형교회 중심으로 일어난 부흥운동으로 다수가 기독교로 개종했으나 기독교인의 90%는 전통신앙에 혼합되어 오직 복음으로 거듭난 사람이 많지 않다.\n\n
+• 섬의 북단과 남단에는 가장 복음화되지 않은 종족이 정령숭배와 이슬람교의 영향 아래 살고 있다.\n\n
+• 외부접근이 어려운 지역이 많아서 항공선교회(MAF)와 헬리미션(Helimission) 등을 통해 사역자와 물품을 보내기도 한다.\n\n
+• 국제 AIM 선교회, 국제 대학생 선교회(CCCI) 등의 큰 단체들이 사역해 왔으며, 주로 토착 단체와 함께 개발과 원조, 직업 훈련, 교육과 보건 등의 사역이 진행되었다.\n\n
+• 인구의 60%가 만 25세 이하로 연령비가 젊은 편이다. 이에 예수전도단(YWAM), 국제 복음주의 학생회(IFES), 어린이 전도협회(CEF) 등에서 소모임이나 캠프와 같은 프로그램으로 사역하고 있기도 하다.\n\n
+• 총 26개 언어 중, 공식어인 말레가시어를 포함한 8개 언어로 성경66권이 번역되어 있다. \n\n
+• 순회선교단의 ‘기도24‧365’는 마다가스카르에 40 종족이 거주하는 것으로 파악하고 있는데, 이 중 11 종족(인구의 1.6%)이 미전도종족이라고 한다.\n\n
+• 현지에는 한국통신, 삼성 등의 기업이 진출해있어 약 200여명의 한국 교민이 거주중이다."
             android:textSize="17sp"
             tools:layout_editor_absoluteX="20dp" />
 
@@ -55,13 +63,176 @@
             android:text="현지 현황"
             android:textSize="25sp" />
 
-        <ImageView
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_marginTop="25dp"
-            android:adjustViewBounds="true"
-            android:scaleType="centerCrop"
-            android:src="@drawable/local_history" />
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/label11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="예원 파송/협력선교사"
+                android:textSize="17sp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:scaleType="centerCrop"
+                android:layout_marginStart="10dp"
+                android:adjustViewBounds="true"
+                app:layout_constraintStart_toEndOf="@id/label11"
+                app:layout_constraintTop_toTopOf="@id/label11"
+                app:layout_constraintBottom_toBottomOf="@id/label11"
+                android:src="@drawable/check_x"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="25dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/label12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="전도현회 파송선교"
+                android:textSize="17sp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:scaleType="centerCrop"
+                android:layout_marginStart="10dp"
+                android:adjustViewBounds="true"
+                app:layout_constraintStart_toEndOf="@id/label12"
+                app:layout_constraintTop_toTopOf="@id/label12"
+                app:layout_constraintBottom_toBottomOf="@id/label12"
+                android:src="@drawable/check_x"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="25dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/label13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="세계선교대회 참석자"
+                android:textSize="17sp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:scaleType="centerCrop"
+                android:layout_marginStart="10dp"
+                android:adjustViewBounds="true"
+                app:layout_constraintStart_toEndOf="@id/label13"
+                app:layout_constraintTop_toTopOf="@id/label13"
+                app:layout_constraintBottom_toBottomOf="@id/label13"
+                android:src="@drawable/check_x"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="25dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/label14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="RTS (MOU 체결)"
+                android:textSize="17sp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:scaleType="centerCrop"
+                android:layout_marginStart="10dp"
+                android:adjustViewBounds="true"
+                app:layout_constraintStart_toEndOf="@id/label14"
+                app:layout_constraintTop_toTopOf="@id/label14"
+                app:layout_constraintBottom_toBottomOf="@id/label14"
+                android:src="@drawable/check_x"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="25dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/label15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="한국 교민 수 : 242"
+                android:textSize="17sp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="25dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/label16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="유니월드 연계사업"
+                android:textSize="17sp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:scaleType="centerCrop"
+                android:layout_marginStart="10dp"
+                android:adjustViewBounds="true"
+                app:layout_constraintStart_toEndOf="@id/label16"
+                app:layout_constraintTop_toTopOf="@id/label16"
+                app:layout_constraintBottom_toBottomOf="@id/label16"
+                android:src="@drawable/check_x"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="25dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/label17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="KOICA 중점 협력국"
+                android:textSize="17sp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:scaleType="centerCrop"
+                android:layout_marginStart="10dp"
+                android:adjustViewBounds="true"
+                app:layout_constraintStart_toEndOf="@id/label17"
+                app:layout_constraintTop_toTopOf="@id/label17"
+                app:layout_constraintBottom_toBottomOf="@id/label17"
+                android:src="@drawable/check_x"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
             android:layout_width="match_parent"
@@ -70,12 +241,60 @@
             android:text="국내 현황"
             android:textSize="25sp" />
 
-        <ImageView
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_marginTop="25dp"
-            android:adjustViewBounds="true"
-            android:scaleType="centerCrop"
-            android:src="@drawable/domestic_history" />
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/label21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="RTS 재학생 여부"
+                android:textSize="17sp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:scaleType="centerCrop"
+                android:layout_marginStart="10dp"
+                android:adjustViewBounds="true"
+                app:layout_constraintStart_toEndOf="@id/label21"
+                app:layout_constraintTop_toTopOf="@id/label21"
+                app:layout_constraintBottom_toBottomOf="@id/label21"
+                android:src="@drawable/check_x"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="25dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/label22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="장기체류자 : 20"
+                android:textSize="17sp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="25dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/label23"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="단기체류자 : 7"
+                android:textSize="17sp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
 </ScrollView>

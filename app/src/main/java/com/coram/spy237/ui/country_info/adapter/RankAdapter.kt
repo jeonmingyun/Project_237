@@ -51,16 +51,16 @@ class RankAdapter(
                 // TEST_DATA 국가 > 주간랭킹 선택 > 국가 상세
                 when (item!!.name) {
                     "마다가스카르" -> {
-                        (context as MainActivity).replaceFragmentWithBackPress(CountryDetailFragment().newInstance(true))
+                        (context as MainActivity).replaceFragmentWithBackPress(CountryDetailFragment().newInstance(true, item!!.name))
                     }
                     "미국" -> {
-                        (context as MainActivity).replaceFragmentWithBackPress(CountryDetailFragment().newInstance(true))
+                        (context as MainActivity).replaceFragmentWithBackPress(CountryDetailFragment().newInstance(true, item!!.name))
                     }
                     "필리핀" -> {
-                        (context as MainActivity).replaceFragmentWithBackPress(CountryDetailFragment().newInstance(true))
+                        (context as MainActivity).replaceFragmentWithBackPress(CountryDetailFragment().newInstance(true, item!!.name))
                     }
                     "우크라이나" -> {
-                        (context as MainActivity).replaceFragmentWithBackPress(CountryDetailFragment().newInstance(true))
+                        (context as MainActivity).replaceFragmentWithBackPress(CountryDetailFragment().newInstance(true, item!!.name))
                     }
                     else -> {
                         Utils.onToast(context, "해당 국가 정보가 없습니다")

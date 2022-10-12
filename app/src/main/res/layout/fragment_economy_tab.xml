@@ -19,7 +19,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
-        android:text="· 세계 최빈국 중 하나로, 철도와 도로교통은 매우 열악하여 비포장된 구간이 대다수이다. \n\n· 미개발 천연자원이 풍부하 나, 자본시장 부재, 사법시스템 취약, 정부부패 만연 등 걸림돌이 많다."
+        android:text="• 세계 최빈국 중 하나로, 철도와 도로교통은 매우 열악하여 비포장된 구간이 대다수이다. 미개발 천연자원이 풍부하나, 자본시장의 부재, 취약한 사법시스템, 만연한 정부부패 등 경제개발의 걸림돌이 많다.\n\n
+• GDP의 ¼ 이상이 농업으로 인구의 약 80%가 고용되어 있으며 70% 이상의 토지가 농지로 사용된다. 화전 농업을 주로 하기에 수 세기동안 벌목이 이루어져 산림훼손이 심각하며, 장기적 경제성장을 위한 교육, 의료, 환경 개선이 국가적 과제다.\n\n
+• 또한, 세계 바닐라의 80%를 생산하는 등 한 상품에의 의존도가 높아 외환이 취약하다. 금융부문의 취약성 때문에 인플레이션 통제를 위한 통화정책의 효과성도 제한적이다."
         android:textSize="17sp"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
         tools:layout_editor_absoluteX="20dp" />
@@ -54,7 +56,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:gravity="center"
-            android:text="$42.3B"
+            android:text="41.82B"
             app:layout_constraintEnd_toEndOf="@+id/appCompatButton2"
             app:layout_constraintStart_toStartOf="@+id/appCompatButton2"
             app:layout_constraintTop_toBottomOf="@+id/appCompatButton2" />
@@ -64,7 +66,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="2021y"
+            android:text="2020y"
             android:textColor="@color/black"
             android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="@+id/textView3"
@@ -86,7 +88,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:gravity="center"
-            android:text="$1,489"
+            android:text="1,500"
             app:layout_constraintEnd_toEndOf="@+id/appCompatButton3"
             app:layout_constraintStart_toStartOf="@+id/appCompatButton3"
             app:layout_constraintTop_toBottomOf="@+id/appCompatButton3" />
@@ -96,7 +98,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="2021y"
+            android:text="2020y"
             android:textColor="@color/black"
             android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="@+id/textView4"
@@ -145,7 +147,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
-        android:text="주요 수출품 : 바닐라, 니켈, 금, 의류, 보석\n주요 수출 대상국 : 미국, 프랑스, UAE 등"
+        android:text="주요 수출품 : 바닐라, 니켈, 골드, 의류, 원석\n
+주요 수출 대상국 : 미국, 프랑스, 아랍에미리트"
         android:textSize="17sp"
         tools:layout_editor_absoluteX="20dp" />
 
@@ -169,7 +172,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
-        android:text="주요 수입품 : 정세석유, 쌀, 자동차, 의약품\n주요 수입 대상국 : 중국, 프랑스, UAE 등"
+        android:text="주요 수입품 : 정제 석유, 쌀, 자동차, 포장 의약품\n
+주요 수입 대상국 : 중국, 프랑스, 아랍에미리트	"
         android:textSize="17sp"
         tools:layout_editor_absoluteX="20dp" />
 </LinearLayout>

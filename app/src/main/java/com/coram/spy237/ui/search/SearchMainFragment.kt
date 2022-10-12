@@ -77,16 +77,16 @@ class SearchMainFragment : Fragment() {
         // TEST_DATA 검색 > 국가 선택 > 국가 상세
         when (countryName) {
             "마다가스카르" -> {
-                (context as MainActivity).replaceFragmentWithBackPress(CountryDetailFragment().newInstance(false))
+                (context as MainActivity).replaceFragmentWithBackPress(CountryDetailFragment().newInstance(false, countryName))
             }
             "미국" -> {
-                (context as MainActivity).replaceFragmentWithBackPress(CountryDetailFragment().newInstance(false))
+                (context as MainActivity).replaceFragmentWithBackPress(CountryDetailFragment().newInstance(false, countryName))
             }
             "필리핀" -> {
-                (context as MainActivity).replaceFragmentWithBackPress(CountryDetailFragment().newInstance(false))
+                (context as MainActivity).replaceFragmentWithBackPress(CountryDetailFragment().newInstance(false, countryName))
             }
             "우크라이나" -> {
-                (context as MainActivity).replaceFragmentWithBackPress(CountryDetailFragment().newInstance(false))
+                (context as MainActivity).replaceFragmentWithBackPress(CountryDetailFragment().newInstance(false, countryName))
             }
             else -> {
                 Utils.onToast(context, "해당 국가의 상세 정보가 없습니다")

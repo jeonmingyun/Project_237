@@ -50,16 +50,16 @@ class SearchAdapter(val context: Context, var itemList: List<SearchModel>) :
                         openMissionaryProfile() // 선교사 상세정보
                     }
                     "마다가스카르" -> {
-                        openCountryInfo() // 국가 상세정보
+                        openCountryInfo(item.searchText) // 국가 상세정보
                     }
                     "미국" -> {
-                        openCountryInfo()
+                        openCountryInfo(item.searchText)
                     }
                     "우크라이나" -> {
-                        openCountryInfo()
+                        openCountryInfo(item.searchText)
                     }
                     "필리핀" -> {
-                        openCountryInfo()
+                        openCountryInfo(item.searchText)
                     }
                     else -> {
                         Utils.onToast(context, "등록된 정보가 없습니다")
@@ -83,9 +83,9 @@ class SearchAdapter(val context: Context, var itemList: List<SearchModel>) :
             )
         }
 
-        private fun openCountryInfo() {
+        private fun openCountryInfo(countryName: String) {
             (context as MainActivity).replaceFragmentWithBackPress(
-                CountryDetailFragment().newInstance(false)
+                CountryDetailFragment().newInstance(false, countryName)
             )
         }
 

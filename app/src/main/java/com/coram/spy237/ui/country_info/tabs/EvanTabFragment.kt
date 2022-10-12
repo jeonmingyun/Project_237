@@ -12,6 +12,25 @@ class EvanTabFragment : Fragment() {
     private var mBinding: FragmentEvanTabBinding? = null
     private val binding get() = mBinding!!
 
+    private var bundleCountryName = "마다가스카르"
+
+    companion object {
+        const val BUNDLE_KEY_COUNTRY_NAME = "BUNDLE_KEY_COUNTRY_NAME"
+
+        fun newInstance(countryName: String): EvanTabFragment {
+            val args = Bundle()
+
+            args.putString(BUNDLE_KEY_COUNTRY_NAME, countryName)
+            val fragment = EvanTabFragment()
+            fragment.arguments = args
+            return fragment
+        }
+    }
+
+    private fun setBundleData() {
+        bundleCountryName = arguments?.getString(BUNDLE_KEY_COUNTRY_NAME).toString()
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -24,6 +43,7 @@ class EvanTabFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setBundleData()
     }
 
     override fun onDestroyView() {

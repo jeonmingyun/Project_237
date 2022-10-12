@@ -48,16 +48,16 @@ class PagerRecyclerAdapter(
                 // TEST_DATA 국가 > 상단 배너 클릭 > 국가 상세
                 when (item.name) {
                     "마다가스카르" -> {
-                        (context as MainActivity).replaceFragmentWithBackPress(CountryDetailFragment().newInstance(false))
+                        (context as MainActivity).replaceFragmentWithBackPress(CountryDetailFragment().newInstance(false, item.name))
                     }
                     "미국" -> {
-                        (context as MainActivity).replaceFragmentWithBackPress(CountryDetailFragment().newInstance(false))
+                        (context as MainActivity).replaceFragmentWithBackPress(CountryDetailFragment().newInstance(false, item.name))
                     }
                     "필리핀" -> {
-                        (context as MainActivity).replaceFragmentWithBackPress(CountryDetailFragment().newInstance(false))
+                        (context as MainActivity).replaceFragmentWithBackPress(CountryDetailFragment().newInstance(false, item.name))
                     }
                     "우크라이나" -> {
-                        (context as MainActivity).replaceFragmentWithBackPress(CountryDetailFragment().newInstance(false))
+                        (context as MainActivity).replaceFragmentWithBackPress(CountryDetailFragment().newInstance(false, item.name))
                     }
                     else -> {
                         Utils.onToast(context, "해당 국가 정보가 없습니다")

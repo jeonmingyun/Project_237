@@ -17,7 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="top"
-        android:text="세계에서 4번째로 큰 섬. 희귀 동식물의 천국"
+        android:text="희귀동식물의 천국"
         android:textColor="@color/app_yellow"
         android:textSize="17sp" />
 
@@ -25,7 +25,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
-        android:text="· 내전이 빈번한 아프리카 타국들에 비해 치 안이 양호하나, 도시와 여행지에는 생계형 범 죄자가 많고 외곽지역에서는 무장강도도 있기 에 가이드를 동행해야 한다. \n\n· 2022년 9월, 인천공항(ICN)에서 안타나나 리보 이바투공항(TNR)까지 직항은 없으나 최 단시간 여정은 에디오피아를 경유하여 편도 18.5 시간이 소요된다."
+        android:text="• 마다가스카르는 모론다바의 바오밥 나무 군락지, 희귀동물을 볼 수 있는 안다시베 국립공원, 세계 3대 옥색 해변으로 유명한 디에고 항구, 유네스코 세계 문화유산 칭기 데 베마하라 등 볼거리가 많은 나라이다.\n\n
+• 내전이 빈번한 아프리카 타국들에 비해 치안이 양호하나, 도시와 여행지에는 생계형 범죄자가 많고 외곽지역에서는 무장 강도도 있기에 가이드를 동행해야 한다."
         android:textSize="17sp"
         tools:layout_editor_absoluteX="20dp" />
 
@@ -43,7 +44,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:gravity="center"
-        android:text="경유 1회\n최단 비행 18.5시간\n최대 60일 관광비자"
+        android:text="경유 2회\n최단 비행 24시간\n최대 60일 단기비자"
         android:textSize="18sp" />
 
     <ImageView
@@ -60,7 +61,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:gravity="center"
-        android:text="유로, 미국달러, 영국 파운드로 환전 가능"
+        android:text="법정통화 : 아리아리(MGA)"
         android:textSize="18sp" />
 
     <ImageView
@@ -77,6 +78,6 @@
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:gravity="center"
-        android:text="현지 공관 대사관"
+        android:text="주마다가스카르 대한미국대사관"
         android:textSize="18sp" />
 </LinearLayout>

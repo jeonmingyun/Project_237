@@ -51,16 +51,16 @@ class CountryAdapter(val context: Context, var itemList: List<CountryModel>) :
                 // TEST_DATA 검색 > 국가 검색 > 국가 선택 > 국가 상세
                 when (item.name) {
                     "마다가스카르" -> {
-                        (context as MainActivity).replaceFragmentWithBackPress(CountryDetailFragment().newInstance(false))
+                        (context as MainActivity).replaceFragmentWithBackPress(CountryDetailFragment().newInstance(false, item.name))
                     }
                     "미국" -> {
-                        (context as MainActivity).replaceFragmentWithBackPress(CountryDetailFragment().newInstance(false))
+                        (context as MainActivity).replaceFragmentWithBackPress(CountryDetailFragment().newInstance(false, item.name))
                     }
                     "필리핀" -> {
-                        (context as MainActivity).replaceFragmentWithBackPress(CountryDetailFragment().newInstance(false))
+                        (context as MainActivity).replaceFragmentWithBackPress(CountryDetailFragment().newInstance(false, item.name))
                     }
                     "우크라이나" -> {
-                        (context as MainActivity).replaceFragmentWithBackPress(CountryDetailFragment().newInstance(false))
+                        (context as MainActivity).replaceFragmentWithBackPress(CountryDetailFragment().newInstance(false, item.name))
                     }
                     else -> {
                         Utils.onToast(context, "해당 국가의 상세 정보가 없습니다")

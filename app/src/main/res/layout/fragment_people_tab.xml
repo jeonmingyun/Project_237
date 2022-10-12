@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:gravity="center"
-            android:text="말레가시아어\n프랑스어"
+            android:text="영어"
             app:layout_constraintEnd_toEndOf="@+id/appCompatButton2"
             app:layout_constraintStart_toStartOf="@+id/appCompatButton2"
             app:layout_constraintTop_toBottomOf="@+id/appCompatButton2" />
@@ -43,7 +43,7 @@
             android:id="@+id/appCompatButton3"
             style="@style/tabTextGray"
             android:layout_marginStart="10dp"
-            android:text="문맹률"
+            android:text="문해율"
             app:layout_constraintStart_toEndOf="@+id/appCompatButton2"
             app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
@@ -54,7 +54,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:gravity="center"
-            android:text="23.3%"
+            android:text="76.7%"
             app:layout_constraintEnd_toEndOf="@+id/appCompatButton3"
             app:layout_constraintStart_toStartOf="@+id/appCompatButton3"
             app:layout_constraintTop_toBottomOf="@+id/appCompatButton3" />
@@ -63,7 +63,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
-            android:text="· 반투어를 사용하는 아프리카 남부와 가깝지만 동남아시아 어군에 속 하는 말라가시어를 사용한다. \n\n· 부족별로 방언이 있지만 소통이 가능하다. \n\n· 문자는 로마자로 표기한다."
+            android:text="• 지리상 반투어를 사용하는 아프리카 남부와 가깝지만 동남아시아 어군에 속하는 말라가시어를 사용한다. 부족별로 다양한 방언이 있지만 서로 소통이 가능하며, 문자는 로마자로 표기한다.\n\n
+• 수도 등 대도시에서는 프랑스어를 한다면 의사소통에 문제가 없지만 현지어인 말라가시를 쓸 경우 상대방이 더욱 우호적이고 친밀하게 반응한다."
             android:textSize="17sp"
             app:layout_constraintTop_toBottomOf="@+id/textView3" />
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -118,7 +119,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:gravity="center"
-            android:text="201"
+            android:text="-"
             app:layout_constraintEnd_toEndOf="@+id/appCompatButton31"
             app:layout_constraintStart_toStartOf="@+id/appCompatButton31"
             app:layout_constraintTop_toBottomOf="@+id/appCompatButton31" />
@@ -138,7 +139,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:gravity="center"
-            android:text="18"
+            android:text="-"
             app:layout_constraintEnd_toEndOf="@+id/appCompatButton311"
             app:layout_constraintStart_toStartOf="@+id/appCompatButton311"
             app:layout_constraintTop_toBottomOf="@+id/appCompatButton311" />
@@ -147,7 +148,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
-            android:text="· 인구의 90% 이상을 말라가시족으로 분류하나, 여러 부족을 통칭하는 이름이다. \n\n· 그 중 가장 큰 부족은 전체 인구의 1⁄4 정도 되는 메리나족으로 인도네시아 혈통이 강하게 드러나며, 주로 내륙고원에 거주한다."
+            android:text="• 인구의 90% 이상을 말라가시족으로 분류하나, 여러 부족을 통칭하는 이름이다. 그 중 가장 큰 부족은 전체 인구의 ¼ 정도 되는 메리나족으로 인도네시아 혈통이 강하게 드러나며, 주로 내륙고원에 거주한다."
             android:textSize="17sp"
             app:layout_constraintTop_toBottomOf="@+id/textView31" />
     </androidx.constraintlayout.widget.ConstraintLayout>
