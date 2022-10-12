@@ -139,7 +139,7 @@
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:scaleType="centerCrop"
-        android:src="@drawable/graph_export" />
+        android:src="@drawable/mada_graph_export" />
 
     <TextView
         android:layout_width="match_parent"
@@ -163,7 +163,7 @@
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:scaleType="centerCrop"
-        android:src="@drawable/graph_income" />
+        android:src="@drawable/mada_graph_income" />
 
     <TextView
         android:layout_width="match_parent"

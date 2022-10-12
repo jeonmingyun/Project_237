@@ -28,7 +28,7 @@ import com.google.android.flexbox.JustifyContent
 import com.google.android.material.tabs.TabLayoutMediator
 
 class SearchFragment : Fragment() {
-    // 샘플용 데이터
+    // 샘플용 데이터 - 추천 태그 - 현재 사용 안함
     private val mockDataRecentSearchItems =
         arrayOf("김동길", "전민균", "김운비", "신윤수", "김성재", "김성재", "유효진", "김상아", "오수려")
     private val mockDataRecommendSearchItems =

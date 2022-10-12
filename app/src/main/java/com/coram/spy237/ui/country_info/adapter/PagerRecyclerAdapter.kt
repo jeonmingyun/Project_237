@@ -44,8 +44,19 @@ class PagerRecyclerAdapter(
             countryTitle.text = item.title
 
             itemView.setOnClickListener {
+                // TODO: 국가 상세 페이지 제작 후 수정
+                // TEST_DATA 국가 > 상단 배너 클릭 > 국가 상세
                 when (item.name) {
                     "마다가스카르" -> {
+                        (context as MainActivity).replaceFragmentWithBackPress(CountryDetailFragment().newInstance(false))
+                    }
+                    "미국" -> {
+                        (context as MainActivity).replaceFragmentWithBackPress(CountryDetailFragment().newInstance(false))
+                    }
+                    "필리핀" -> {
+                        (context as MainActivity).replaceFragmentWithBackPress(CountryDetailFragment().newInstance(false))
+                    }
+                    "우크라이나" -> {
                         (context as MainActivity).replaceFragmentWithBackPress(CountryDetailFragment().newInstance(false))
                     }
                     else -> {

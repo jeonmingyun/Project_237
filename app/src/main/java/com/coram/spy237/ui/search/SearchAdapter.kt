@@ -6,21 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.coram.spy237.MainActivity
 import com.coram.spy237.R
 import com.coram.spy237.model.SearchModel
 import com.coram.spy237.ui.country_info.CountryDetailFragment
-import com.coram.spy237.ui.country_info.CountryInfoFragment
 import com.coram.spy237.ui.missionary.MissionaryProfileFragment
+import com.coram.spy237.util.Utils
 
 class SearchAdapter(val context: Context, var itemList: List<SearchModel>) :
     RecyclerView.Adapter<SearchAdapter.MyViewHolder>() {
-
-    val testName = "김동길"
-    val testCountry = "마다가스카르"
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         return MyViewHolder(
@@ -47,17 +43,32 @@ class SearchAdapter(val context: Context, var itemList: List<SearchModel>) :
             searchItemText.text = item.searchText
 
             itemView.setOnClickListener {
-                if (item.searchText == testName) {
-                    openMissionaryProfile()
-                } else if (item.searchText == testCountry) {
-                    openCountryInfo()
-                } else {
-                    Toast.makeText(context, "등록된 정보가 없습니다", Toast.LENGTH_SHORT).show()
+                // TODO: 국가 상세 페이지 제작 후 수정
+                // TEST_DATA 상세정보가 국가, 선교사 정보 입력
+                when (item.searchText) {
+                    "김동길" -> {
+                        openMissionaryProfile() // 선교사 상세정보
+                    }
+                    "마다가스카르" -> {
+                        openCountryInfo() // 국가 상세정보
+                    }
+                    "미국" -> {
+                        openCountryInfo()
+                    }
+                    "우크라이나" -> {
+                        openCountryInfo()
+                    }
+                    "필리핀" -> {
+                        openCountryInfo()
+                    }
+                    else -> {
+                        Utils.onToast(context, "등록된 정보가 없습니다")
+                    }
                 }
             }
         }
 
-        fun setSearchIcon(item: SearchModel) {
+        private fun setSearchIcon(item: SearchModel) {
             if (item.imageUri.isBlank()) {
                 searchItemIcon.visibility = View.GONE
             } else {
@@ -66,13 +77,13 @@ class SearchAdapter(val context: Context, var itemList: List<SearchModel>) :
             }
         }
 
-        fun openMissionaryProfile() {
+        private fun openMissionaryProfile() {
             (context as MainActivity).replaceFragmentWithBackPress(
                 MissionaryProfileFragment()
             )
         }
 
-        fun openCountryInfo() {
+        private fun openCountryInfo() {
             (context as MainActivity).replaceFragmentWithBackPress(
                 CountryDetailFragment().newInstance(false)
             )

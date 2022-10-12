@@ -10,7 +10,6 @@ import com.coram.spy237.MainActivity
 import com.coram.spy237.R
 import com.coram.spy237.model.db.CountryModel
 import com.coram.spy237.ui.country_info.CountryDetailFragment
-import com.coram.spy237.util.PrefManager
 import com.coram.spy237.util.Utils
 
 class RankAdapter(
@@ -48,8 +47,19 @@ class RankAdapter(
 
         override fun onClick(v: View?) {
             if (v == this.itemView) {
+                // TODO: 국가 상세 페이지 제작 후 수정
+                // TEST_DATA 국가 > 주간랭킹 선택 > 국가 상세
                 when (item!!.name) {
                     "마다가스카르" -> {
+                        (context as MainActivity).replaceFragmentWithBackPress(CountryDetailFragment().newInstance(true))
+                    }
+                    "미국" -> {
+                        (context as MainActivity).replaceFragmentWithBackPress(CountryDetailFragment().newInstance(true))
+                    }
+                    "필리핀" -> {
+                        (context as MainActivity).replaceFragmentWithBackPress(CountryDetailFragment().newInstance(true))
+                    }
+                    "우크라이나" -> {
                         (context as MainActivity).replaceFragmentWithBackPress(CountryDetailFragment().newInstance(true))
                     }
                     else -> {

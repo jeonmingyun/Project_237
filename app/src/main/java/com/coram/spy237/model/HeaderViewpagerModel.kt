@@ -8,6 +8,7 @@ data class HeaderViewpagerModel(
     val uri: Int = -1,
     val isChecked: Boolean = false
 ) {
+    // TEST_DATA 국가정보 > 상단 이미지 배너
     fun getTestList(): ArrayList<HeaderViewpagerModel> {
         return arrayListOf(
             HeaderViewpagerModel("마다가스카르", "세계에서 4번째로 큰 섬\n그리고 사역자", R.drawable.country_img01, false),
