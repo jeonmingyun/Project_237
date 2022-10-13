@@ -31,21 +31,45 @@ class PrayNoteFragment : Fragment(), View.OnClickListener {
     // DB
     private lateinit var dbHelper: DbOpenHelper
 
+    private val calendar = Calendar.getInstance()
+    private val year = calendar.get(Calendar.YEAR)
+    private val month = calendar.get(Calendar.MONTH) + 1
+    private val date = calendar.get(Calendar.DATE)
+
     // sample
     private val prayNoteList = arrayListOf<String>(
-        "2022-9-29",
-        "2022-9-30",
-        "2022-10-1",
+        getToday(calendar),
+        getTomorrow(calendar),
+        getAfterTomorrow(calendar)
     )
+
+    private fun getToday(calendar: Calendar): String {
+        return "${calendar.get(Calendar.YEAR)}-${calendar.get(Calendar.MONTH) + 1}-${calendar.get(Calendar.DATE)}"
+    }
+
+    private fun getTomorrow(calendar: Calendar): String {
+        calendar.add(Calendar.DATE, 1)
+        val result = "${calendar.get(Calendar.YEAR)}-${calendar.get(Calendar.MONTH) + 1}-${calendar.get(Calendar.DATE)}"
+        calendar.add(Calendar.DATE, -1)
+        return result
+    }
+
+    private fun getAfterTomorrow(calendar: Calendar): String {
+        calendar.add(Calendar.DATE, 2)
+        val result = "${calendar.get(Calendar.YEAR)}-${calendar.get(Calendar.MONTH) + 1}-${calendar.get(Calendar.DATE)}"
+        calendar.add(Calendar.DATE, -2)
+        return result
+    }
+
     private val prayNoteMap = hashMapOf<String, Int>(
         prayNoteList[0] to R.drawable.pray_note_1,
         prayNoteList[1] to R.drawable.pray_note_2,
         prayNoteList[2] to R.drawable.pray_note_3
     )
     private val prayDateList = arrayListOf(
-        DateFormatUtil.formatChangeDateString(prayNoteList[0], "yyyy-M-dd", "yyyy년 M월 d일"),
-        DateFormatUtil.formatChangeDateString(prayNoteList[1], "yyyy-M-dd", "yyyy년 M월 d일"),
-        DateFormatUtil.formatChangeDateString(prayNoteList[2], "yyyy-M-dd", "yyyy년 M월 d일")
+        DateFormatUtil.formatChangeDateString(prayNoteList[0], DateFormatUtil.DATE_FORMAT_7, "yyyy년 M월 d일"),
+        DateFormatUtil.formatChangeDateString(prayNoteList[1], DateFormatUtil.DATE_FORMAT_7, "yyyy년 M월 d일"),
+        DateFormatUtil.formatChangeDateString(prayNoteList[2], DateFormatUtil.DATE_FORMAT_7, "yyyy년 M월 d일")
     )
     private val prayTitleList = arrayListOf(
         "최고의 상급",

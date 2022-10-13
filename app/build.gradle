@@ -22,6 +22,22 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+
+        debug {
+            minifyEnabled false
+            android.applicationVariants.all { variant ->
+                variant.outputs.all { output ->
+                    def date = new Date().format("YY.MM.dd")
+                    def outputFile = output.outputFile
+                    if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                        def fileName = outputFile.name.replace("app-debug",
+                                "${date}_237spy_app")
+                        outputFileName = fileName
+
+                    }
+                }
+            }
+        }
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -34,6 +50,7 @@ android {
     buildFeatures {
         viewBinding true
     }
+
 }
 
 dependencies {

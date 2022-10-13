@@ -14,6 +14,7 @@ object DateFormatUtil {
     const val DATE_FORMAT_4 = "HH:mm" // 2020-04-02
     const val DATE_FORMAT_5 = "yyyy-MM" // 2020-04
     const val DATE_FORMAT_6 = "dd" // 02
+    const val DATE_FORMAT_7 = "yyyy-M-d" // 2020-4-1
 
     fun getCurrentDate(formatType: String?): String {
         val dateFormat = SimpleDateFormat(formatType, Locale.getDefault())
