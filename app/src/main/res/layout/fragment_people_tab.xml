@@ -60,6 +60,7 @@
             app:layout_constraintTop_toBottomOf="@+id/appCompatButton3" />
 
         <TextView
+            android:id="@+id/langContent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
@@ -145,6 +146,7 @@
             app:layout_constraintTop_toBottomOf="@+id/appCompatButton311" />
 
         <TextView
+            android:id="@+id/populationContent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"

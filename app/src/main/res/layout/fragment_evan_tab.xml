@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,7 +18,7 @@
             android:textSize="25sp" />
 
         <TextView
-            android:id="@+id/some_id"
+            android:id="@+id/subTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="top"
@@ -27,6 +27,7 @@
             android:textSize="17sp" />
 
         <TextView
+            android:id="@+id/evanContent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
@@ -49,6 +50,7 @@
             android:textSize="25sp" />
 
         <ImageView
+            android:id="@+id/religionGraph"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
@@ -65,8 +67,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_marginTop="25dp"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp">
 
             <TextView
                 android:id="@+id/label11"
@@ -74,51 +76,53 @@
                 android:layout_height="wrap_content"
                 android:text="예원 파송/협력선교사"
                 android:textSize="17sp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
+                android:id="@+id/checkIcon11"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
-                android:scaleType="centerCrop"
                 android:layout_marginStart="10dp"
                 android:adjustViewBounds="true"
-                app:layout_constraintStart_toEndOf="@id/label11"
-                app:layout_constraintTop_toTopOf="@id/label11"
+                android:scaleType="centerCrop"
+                android:src="@drawable/check_x"
                 app:layout_constraintBottom_toBottomOf="@id/label11"
-                android:src="@drawable/check_x"/>
+                app:layout_constraintStart_toEndOf="@id/label11"
+                app:layout_constraintTop_toTopOf="@id/label11" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_marginTop="25dp"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp">
 
             <TextView
                 android:id="@+id/label12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="전도현회 파송선교"
+                android:text="전도협회 파송선교"
                 android:textSize="17sp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
+                android:id="@+id/checkIcon12"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
-                android:scaleType="centerCrop"
                 android:layout_marginStart="10dp"
                 android:adjustViewBounds="true"
-                app:layout_constraintStart_toEndOf="@id/label12"
-                app:layout_constraintTop_toTopOf="@id/label12"
+                android:scaleType="centerCrop"
+                android:src="@drawable/check_x"
                 app:layout_constraintBottom_toBottomOf="@id/label12"
-                android:src="@drawable/check_x"/>
+                app:layout_constraintStart_toEndOf="@id/label12"
+                app:layout_constraintTop_toTopOf="@id/label12" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_marginTop="25dp"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp">
 
             <TextView
                 android:id="@+id/label13"
@@ -126,25 +130,26 @@
                 android:layout_height="wrap_content"
                 android:text="세계선교대회 참석자"
                 android:textSize="17sp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
+                android:id="@+id/checkIcon13"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
-                android:scaleType="centerCrop"
                 android:layout_marginStart="10dp"
                 android:adjustViewBounds="true"
-                app:layout_constraintStart_toEndOf="@id/label13"
-                app:layout_constraintTop_toTopOf="@id/label13"
+                android:scaleType="centerCrop"
+                android:src="@drawable/check_x"
                 app:layout_constraintBottom_toBottomOf="@id/label13"
-                android:src="@drawable/check_x"/>
+                app:layout_constraintStart_toEndOf="@id/label13"
+                app:layout_constraintTop_toTopOf="@id/label13" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_marginTop="25dp"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp">
 
             <TextView
                 android:id="@+id/label14"
@@ -152,25 +157,26 @@
                 android:layout_height="wrap_content"
                 android:text="RTS (MOU 체결)"
                 android:textSize="17sp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
+                android:id="@+id/checkIcon14"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
-                android:scaleType="centerCrop"
                 android:layout_marginStart="10dp"
                 android:adjustViewBounds="true"
-                app:layout_constraintStart_toEndOf="@id/label14"
-                app:layout_constraintTop_toTopOf="@id/label14"
+                android:scaleType="centerCrop"
+                android:src="@drawable/check_x"
                 app:layout_constraintBottom_toBottomOf="@id/label14"
-                android:src="@drawable/check_x"/>
+                app:layout_constraintStart_toEndOf="@id/label14"
+                app:layout_constraintTop_toTopOf="@id/label14" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_marginTop="25dp"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp">
 
             <TextView
                 android:id="@+id/label15"
@@ -178,14 +184,14 @@
                 android:layout_height="wrap_content"
                 android:text="한국 교민 수 : 242"
                 android:textSize="17sp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_marginTop="25dp"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp">
 
             <TextView
                 android:id="@+id/label16"
@@ -193,25 +199,26 @@
                 android:layout_height="wrap_content"
                 android:text="유니월드 연계사업"
                 android:textSize="17sp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
+                android:id="@+id/checkIcon16"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
-                android:scaleType="centerCrop"
                 android:layout_marginStart="10dp"
                 android:adjustViewBounds="true"
-                app:layout_constraintStart_toEndOf="@id/label16"
-                app:layout_constraintTop_toTopOf="@id/label16"
+                android:scaleType="centerCrop"
+                android:src="@drawable/check_x"
                 app:layout_constraintBottom_toBottomOf="@id/label16"
-                android:src="@drawable/check_x"/>
+                app:layout_constraintStart_toEndOf="@id/label16"
+                app:layout_constraintTop_toTopOf="@id/label16" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_marginTop="25dp"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp">
 
             <TextView
                 android:id="@+id/label17"
@@ -219,32 +226,33 @@
                 android:layout_height="wrap_content"
                 android:text="KOICA 중점 협력국"
                 android:textSize="17sp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
+                android:id="@+id/checkIcon17"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
-                android:scaleType="centerCrop"
                 android:layout_marginStart="10dp"
                 android:adjustViewBounds="true"
-                app:layout_constraintStart_toEndOf="@id/label17"
-                app:layout_constraintTop_toTopOf="@id/label17"
+                android:scaleType="centerCrop"
+                android:src="@drawable/check_x"
                 app:layout_constraintBottom_toBottomOf="@id/label17"
-                android:src="@drawable/check_x"/>
+                app:layout_constraintStart_toEndOf="@id/label17"
+                app:layout_constraintTop_toTopOf="@id/label17" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="45dp"
             android:text="국내 현황"
             android:textSize="25sp" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_marginTop="25dp"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp">
 
             <TextView
                 android:id="@+id/label21"
@@ -252,25 +260,26 @@
                 android:layout_height="wrap_content"
                 android:text="RTS 재학생 여부"
                 android:textSize="17sp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
+                android:id="@+id/checkIcon21"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
-                android:scaleType="centerCrop"
                 android:layout_marginStart="10dp"
                 android:adjustViewBounds="true"
-                app:layout_constraintStart_toEndOf="@id/label21"
-                app:layout_constraintTop_toTopOf="@id/label21"
+                android:scaleType="centerCrop"
+                android:src="@drawable/check_x"
                 app:layout_constraintBottom_toBottomOf="@id/label21"
-                android:src="@drawable/check_x"/>
+                app:layout_constraintStart_toEndOf="@id/label21"
+                app:layout_constraintTop_toTopOf="@id/label21" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_marginTop="25dp"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp">
 
             <TextView
                 android:id="@+id/label22"
@@ -278,14 +287,14 @@
                 android:layout_height="wrap_content"
                 android:text="장기체류자 : 20"
                 android:textSize="17sp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_marginTop="25dp"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp">
 
             <TextView
                 android:id="@+id/label23"
@@ -293,8 +302,8 @@
                 android:layout_height="wrap_content"
                 android:text="단기체류자 : 7"
                 android:textSize="17sp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
 </ScrollView>
