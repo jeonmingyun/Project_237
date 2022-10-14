@@ -120,6 +120,7 @@ class EvanTabFragment : Fragment() {
             val fragment = EvanTabFragment()
             fragment.arguments = args
             return fragment
+            
         }
     }
 
