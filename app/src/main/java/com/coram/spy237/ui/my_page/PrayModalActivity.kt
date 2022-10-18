@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.coram.spy237.databinding.ActivityPrayModalBinding
 import com.coram.spy237.db.DbOpenHelper
 import com.coram.spy237.model.db.AlarmModel
+import com.coram.spy237.util.DateFormatUtil
 
 class PrayModalActivity : AppCompatActivity() {
     // view binding
@@ -33,7 +34,7 @@ class PrayModalActivity : AppCompatActivity() {
             finish()
         }
         binding.appCompatButton.setOnClickListener {
-            model.isSucceed = "true"
+            model.isSucceed = DateFormatUtil.getCurrentDate(DateFormatUtil.DATE_FORMAT_8)
             dbHelper.updateAlarm(model)
             finish()
         }

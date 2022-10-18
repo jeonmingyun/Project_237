@@ -47,7 +47,6 @@ class RankAdapter(
 
         override fun onClick(v: View?) {
             if (v == this.itemView) {
-                // TODO: 국가 상세 페이지 제작 후 수정
                 // TEST_DATA 국가 > 주간랭킹 선택 > 국가 상세
                 when (item!!.name) {
                     "마다가스카르" -> {

@@ -76,7 +76,7 @@ class AlarmAdapter(
             this.item = item
             prayTime.text = item.time
             prayContent.text = item.content
-            prayChkBox.isChecked = item.isSucceed.toBoolean()
+            prayChkBox.isChecked = item.isSucceedDate()
             itemView.setOnClickListener(this)
 
             itemView.setOnLongClickListener {

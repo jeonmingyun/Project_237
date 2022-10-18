@@ -44,7 +44,6 @@ class PagerRecyclerAdapter(
             countryTitle.text = item.title
 
             itemView.setOnClickListener {
-                // TODO: 국가 상세 페이지 제작 후 수정
                 // TEST_DATA 국가 > 상단 배너 클릭 > 국가 상세
                 when (item.name) {
                     "마다가스카르" -> {

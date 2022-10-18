@@ -10,7 +10,7 @@ data class AlarmModel(
     var time: String = "",
     var content: String = "",
     var headerContent: String = "",
-    var isSucceed: String = "",
+    var isSucceed: String = "", // yyyyMMdd
 
     var isSoundAlarm: String = "",
     var isVibAlarm: String = "",
@@ -27,7 +27,7 @@ data class AlarmModel(
                         "2022-01-01 01:01",
                         "blaa blaa" + i.toString(),
                         "Philippines | Joshua 2:1-3",
-                        "false",
+                        "20200101",
                         "false",
                         "false",
                         "false"
@@ -38,4 +38,9 @@ data class AlarmModel(
         }
     }
 
+    fun isSucceedDate(): Boolean {
+        val currentDate = DateFormatUtil.getCurrentDate(DateFormatUtil.DATE_FORMAT_8).toInt()
+
+        return currentDate == isSucceed.toInt()
+    }
 }

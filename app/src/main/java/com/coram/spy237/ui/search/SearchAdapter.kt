@@ -43,7 +43,6 @@ class SearchAdapter(val context: Context, var itemList: List<SearchModel>) :
             searchItemText.text = item.searchText
 
             itemView.setOnClickListener {
-                // TODO: 국가 상세 페이지 제작 후 수정
                 // TEST_DATA 상세정보가 국가, 선교사 정보 입력
                 when (item.searchText) {
                     "김동길" -> {

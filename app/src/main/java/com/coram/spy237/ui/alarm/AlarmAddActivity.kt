@@ -131,7 +131,7 @@ class AlarmAddActivity : AppCompatActivity(), View.OnClickListener {
         if (bundleModel!!.headerContent.isBlank())
             bundleModel!!.headerContent = PRAY_HEAD[Random.nextInt(PRAY_HEAD.size)]
         if (bundleModel!!.isSucceed.isBlank())
-            bundleModel!!.isSucceed = "false"
+            bundleModel!!.isSucceed = "16000101"
         bundleModel!!.isSoundAlarm = binding.soundSwitch.isChecked.toString()
         bundleModel!!.isVibAlarm = binding.vibSwitch.isChecked.toString()
         bundleModel!!.isPushAlarm = binding.pushSwitch.isChecked.toString()

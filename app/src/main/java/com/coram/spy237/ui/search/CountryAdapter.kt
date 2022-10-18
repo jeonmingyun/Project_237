@@ -47,7 +47,6 @@ class CountryAdapter(val context: Context, var itemList: List<CountryModel>) :
             prayCount.text = "기도수 : ${item.prayCount}"
 
             itemView.setOnClickListener {
-                // TODO: 국가 상세 페이지 제작 후 수정
                 // TEST_DATA 검색 > 국가 검색 > 국가 선택 > 국가 상세
                 when (item.name) {
                     "마다가스카르" -> {

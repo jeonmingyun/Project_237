@@ -100,9 +100,9 @@ class AlarmFragment : Fragment(), View.OnClickListener {
 
     private fun insertDailyMission(alarmList: ArrayList<AlarmModel>) {
         val succeedList = alarmList.filter {
-            it.isSucceed == "true"
+            it.isSucceedDate()
         }
-        if (succeedList.size == alarmList.size) {
+        if ( succeedList.isNotEmpty() && succeedList.size == alarmList.size) {
             dbHelper.insertDailyMission(DateFormatUtil.getCurrentDate(DateFormatUtil.DATE_FORMAT_3))
         }
     }
